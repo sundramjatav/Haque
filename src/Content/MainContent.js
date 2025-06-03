@@ -1,0 +1,37 @@
+import axios from 'axios';
+import logo from '../assets/yumeko-logo-white.png'
+import logo1 from '../assets/yemeko-logo.jpg'
+import { store } from '../Redux/store';
+
+export const MainContent = {
+  AppName: "Yumeko AI World",
+  AppLogo: logo,
+  appFavicon: logo1,
+}
+
+export const backendConfig = {
+  // base: "http://192.168.48.186:3000/api",
+  // origin: "http://192.168.48.186:3000", 
+
+  base: "https://yumeko.api.smartchainstudio.in/api",
+  origin: "https://yumeko.api.smartchainstudio.in/",
+};
+
+export const Axios = axios.create({
+  baseURL: backendConfig.base,
+  withCredentials: true,
+});
+
+Axios.interceptors.request.use(
+  (config) => {
+    const state = store.getState();
+    const token = state?.auth?.token;
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);

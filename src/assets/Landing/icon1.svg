@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="65px" viewBox="0 0 64 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon1</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="350" height="270" rx="30"></rect>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="特点" transform="translate(-197.000000, -106.000000)">
+            <rect fill="#none" x="0" y="0" width="1668" height="1081"></rect>
+            <g id="编组-45" transform="translate(54.000000, 67.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <rect stroke-opacity="0.2" stroke="#FFFFFF" x="0.5" y="0.5" width="349" height="269" rx="30"></rect>
+            </g>
+            <g id="编组-9" transform="translate(99.000000, 106.910000)">
+                <g id="networks-supported" transform="translate(98.000000, 0.000000)">
+                    <polyline id="路径" stroke="#4FE117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="31.999048 36.3637058 31.999048 51.3442202 46.9797864 59.9046741 61.9604127 51.3442202 61.9604127 36.3637058"></polyline>
+                    <polyline id="路径" stroke="#4FE117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="2.03958729 36.3637058 2.03958729 51.3442202 17.0203256 59.9046741 32.000952 51.3442202 32.000952 36.3637058"></polyline>
+                    <line x1="46.9787784" y1="44.9253917" x2="46.9787784" y2="59.9061301" id="路径" stroke="#4FE117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="17.0193177" y1="44.9253917" x2="17.0193177" y2="59.9061301" id="路径" stroke="#4FE117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <polyline id="路径" fill-opacity="0.2" fill="#4FE117" fill-rule="nonzero" points="17.0193177 12.4678496 17.0193177 27.4485543 32.000056 36.0088962 46.9806823 27.4485543 46.9806823 12.4678496"></polyline>
+                    <polyline id="路径" stroke="#4FE117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="17.0193177 12.4678496 17.0193177 27.4485543 32.000056 36.0088962 46.9806823 27.4485543 46.9806823 12.4678496"></polyline>
+                    <line x1="31.999048" y1="21.0273739" x2="31.999048" y2="36.0081122" id="路径" stroke="#4FE117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <polygon id="路径" stroke="#4FE117" stroke-width="2" fill-opacity="0.2" fill="#4FE117" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round" points="46.9797864 27.8041479 31.999048 36.3643778 46.9797864 44.9248317 61.9604127 36.3643778"></polygon>
+                    <polygon id="路径" stroke="#4FE117" stroke-width="2" fill-opacity="0.2" fill="#4FE117" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round" points="17.0203256 27.8041479 2.03958729 36.3643778 17.0203256 44.9248317 32.000952 36.3643778"></polygon>
+                    <polygon id="路径" stroke="#4FE117" stroke-width="2" fill="#4FE117" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round" points="32.000056 3.90613009 17.0193177 12.466528 32.000056 21.0269259 46.9806823 12.466528"></polygon>
+                </g>
+                <g id="networks-supported" transform="translate(98.000000, 0.000000)">
+                    <polyline id="路径" stroke="#4FE117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="31.999048 36.3637058 31.999048 51.3442202 46.9797864 59.9046741 61.9604127 51.3442202 61.9604127 36.3637058"></polyline>
+                    <polyline id="路径" stroke="#4FE117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="2.03958729 36.3637058 2.03958729 51.3442202 17.0203256 59.9046741 32.000952 51.3442202 32.000952 36.3637058"></polyline>
+                    <line x1="46.9787784" y1="44.9253917" x2="46.9787784" y2="59.9061301" id="路径" stroke="#4FE117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="17.0193177" y1="44.9253917" x2="17.0193177" y2="59.9061301" id="路径" stroke="#4FE117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <polyline id="路径" fill-opacity="0.2" fill="#4FE117" fill-rule="nonzero" points="17.0193177 12.4678496 17.0193177 27.4485543 32.000056 36.0088962 46.9806823 27.4485543 46.9806823 12.4678496"></polyline>
+                    <polyline id="路径" stroke="#4FE117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="17.0193177 12.4678496 17.0193177 27.4485543 32.000056 36.0088962 46.9806823 27.4485543 46.9806823 12.4678496"></polyline>
+                    <line x1="31.999048" y1="21.0273739" x2="31.999048" y2="36.0081122" id="路径" stroke="#4FE117" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <polygon id="路径" stroke="#4FE117" stroke-width="2" fill-opacity="0.2" fill="#4FE117" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round" points="46.9797864 27.8041479 31.999048 36.3643778 46.9797864 44.9248317 61.9604127 36.3643778"></polygon>
+                    <polygon id="路径" stroke="#4FE117" stroke-width="2" fill-opacity="0.2" fill="#4FE117" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round" points="17.0203256 27.8041479 2.03958729 36.3643778 17.0203256 44.9248317 32.000952 36.3643778"></polygon>
+                    <polygon id="路径" stroke="#4FE117" stroke-width="2" fill="#4FE117" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round" points="32.000056 3.90613009 17.0193177 12.466528 32.000056 21.0269259 46.9806823 12.466528"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
