@@ -18,7 +18,7 @@ It operates on decentralized networks using blockchain technology, eliminating i
 Bitcoin is the most well-known example, and it's used as a payment method or as a speculative investment.`,
     },
     mining: {
-      title: ' cryptocurrency minin',
+      title: ' cryptocurrency mining',
       content: `Crypto mining is a process where miners, using powerful computers, solve complex mathematical problems to validate
 and add transactions to a blockchain, the ledger that records all cryptocurrency transactions.
 This process also creates new digital tokens or coins as a reward for the miners' work. Essentially,
@@ -27,13 +27,13 @@ it's like a distributed, decentralized way to ensure the integrity and security 
   };
 
   return (
-    <section className="bg-gray-900 text-white py-16 px-6">
+    <section className="bg-gray-900 text-white pb-10 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="flex flex-wrap justify-center gap-4 mb-10">
+        <div className="flex flex-wrap justify-center gap-4 ">
           <button
             className={`px-6 py-2 rounded-lg font-medium ${
               activeTab === 'blockchain'
-                ? 'bg-teal-500 text-white'
+                ? 'bg-bg-color text-white'
                 : 'bg-gray-700 hover:bg-gray-600'
             }`}
             onClick={() => setActiveTab('blockchain')}
@@ -43,7 +43,7 @@ it's like a distributed, decentralized way to ensure the integrity and security 
           <button
             className={`px-6 py-2 rounded-lg font-medium ${
               activeTab === 'cryptocurrency'
-                ? 'bg-teal-500 text-white'
+                ? 'bg-bg-color text-white'
                 : 'bg-gray-700 hover:bg-gray-600'
             }`}
             onClick={() => setActiveTab('cryptocurrency')}
@@ -53,7 +53,7 @@ it's like a distributed, decentralized way to ensure the integrity and security 
           <button
             className={`px-6 py-2 rounded-lg font-medium ${
               activeTab === 'mining'
-                ? 'bg-teal-500 text-white'
+                ? 'bg-bg-color text-white'
                 : 'bg-gray-700 hover:bg-gray-600'
             }`}
             onClick={() => setActiveTab('mining')}
@@ -62,8 +62,8 @@ it's like a distributed, decentralized way to ensure the integrity and security 
           </button>
         </div>
 
-        <div className="bg-gray-800 p-6 rounded-xl shadow-lg">
-          <h2 className="text-2xl font-bold text-teal-400 mb-4">{tabs[activeTab].title}</h2>
+        <div className="bg-gray-800 p-6 ">
+          {/* <h2 className="text-2xl font-bold text-bg-color mb-4">{tabs[activeTab].title}</h2> */}
           <p className="text-gray-300 whitespace-pre-line leading-relaxed">
             {tabs[activeTab].content}
           </p>

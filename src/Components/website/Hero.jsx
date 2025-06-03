@@ -11,6 +11,7 @@ import {
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import { Routers } from "../../Routes/Routers";
+import GradientHeading from "./GradientHeading";
 
 const COLORS_TOP = ["#13FFAA", "#3FB649", "#1E67C6", "#CE84CF", "#DD335C"];
 
@@ -45,9 +46,7 @@ const Hero = () => {
                 <span className="mb-1.5 inline-block rounded-full bg-gray-600/50 px-3 py-1.5 text-sm">
                     Beta Now Live!
                 </span>
-                <h1 className="max-w-4xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center text-3xl font-medium leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-7xl md:leading-tight">
-                    Welcome to Yumeko Ai
-                </h1>
+                <GradientHeading className={'text-center'} text="Welcome to Yumeko Ai" />
                 <p className="my-6 max-w-xl text-center text-base leading-relaxed md:text-lg md:leading-relaxed">
                     Your trusted partner in crypto earning and investing. <br />
                     Unlock secure opportunities with staking, mining, and DeFi projects. <br />

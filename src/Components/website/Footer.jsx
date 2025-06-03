@@ -7,10 +7,10 @@ const Footer = () => {
     const quickLinks = ["home", "about", "packages", "faq", "contact"];
 
     return (
-        <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
+        <footer className="relative bg-bg-color/20 overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-0 left-0 w-32 h-32 sm:w-48 sm:h-48 lg:w-72 lg:h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+                {/* <div className="absolute top-0 left-0 w-32 h-32 sm:w-48 sm:h-48 lg:w-72 lg:h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div> */}
                 <div className="absolute bottom-0 right-0 w-32 h-32 sm:w-48 sm:h-48 lg:w-72 lg:h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
             </div>
             
@@ -27,7 +27,7 @@ const Footer = () => {
                                     alt="Yumeko AI Logo" 
                                     className='h-10 sm:h-12 md:h-16 lg:h-20 object-contain filter drop-shadow-lg' 
                                 />
-                                <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg opacity-20 blur-md"></div>
+                                {/* <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg opacity-20 blur-md"></div> */}
                             </div>
                         </div>
                         <div className="space-y-3 sm:space-y-4">
@@ -40,7 +40,6 @@ const Footer = () => {
                             </div>
                         </div>
                         
-                        {/* Social Links - Mobile First */}
                         <div className="pt-2 sm:pt-4">
                             <div className="text-white font-medium text-sm sm:text-base mb-3">Follow Us</div>
                             <div className="flex flex-wrap gap-2 sm:gap-3">
@@ -61,7 +60,6 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Quick Links */}
                     <div className="space-y-4 sm:space-y-6">
                         <h3 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                             Quick Links
@@ -84,7 +82,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Supported Coins */}
                     <div className="space-y-4 sm:space-y-6">
                         <h3 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                             Supported Coins
@@ -109,13 +106,11 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Contact Information */}
                     <div className="sm:col-span-2 lg:col-span-1 space-y-4 sm:space-y-6">
                         <h3 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                             Connect With Us
                         </h3>
                         
-                        {/* Email */}
                         <div className="flex items-start space-x-3  bg-gray-800/30 rounded-lg ">
                             <FaEnvelope className="text-blue-400 mt-1 flex-shrink-0" size={14} />
                             <div className="min-w-0 flex-1">
@@ -129,7 +124,6 @@ const Footer = () => {
                             </div>
                         </div>
 
-                        {/* Offices */}
                         <div className="space-y-3 sm:space-y-4">
                             <div className="flex items-start space-x-3  bg-gray-800/30 rounded-lg ">
                                 <FaMapMarkerAlt className="text-green-400 mt-1 flex-shrink-0" size={14} />
@@ -159,7 +153,6 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Bottom Bar */}
                 <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-700/50">
                     <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
                         <div className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">

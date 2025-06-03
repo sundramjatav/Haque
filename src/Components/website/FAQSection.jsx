@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
+import GradientHeading from "./GradientHeading";
 
 const faqData = [
     {
@@ -35,7 +36,8 @@ const FAQSection = () => {
         <div className=" text-white py-16 px-4 relative">
             <div className="max-w-5xl mx-auto text-center">
                 <p className="text-sm text-bg-color font-medium mb-2">Frequently Asked Questions</p>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Questions & Answers</h2>
+                <GradientHeading text="Questions & Answers" />
+                {/* <h2 className="text-3xl md:text-4xl font-bold mb-4">Questions & Answers</h2> */}
                 <p className="text-gray-400 mb-12 max-w-xl mx-auto">
                     Everything you need to know about Yumeko Ai, its stability, usage, and availability. If you have more questions, feel free to reach out.
                 </p>

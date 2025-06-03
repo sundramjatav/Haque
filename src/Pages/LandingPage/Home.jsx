@@ -23,20 +23,18 @@ const Home = () => {
       <div id="about">
         <AboutUs />
       </div>
- <div >
-     <Mission/>
+      <div >
+        <Mission />
       </div>
-       <div >
-   <Vision/>
+      <div >
+        <Vision />
       </div>
-<div>
-  <WhyChoose/>
-</div>
-         <div >
-<InfoTabs/>
+      <div>
+        <WhyChoose />
       </div>
-
-
+      <div >
+        <InfoTabs />
+      </div>
       <ContentSections />
       <BouncyCardsFeatures />
       <div id="packages">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Shield, TrendingUp, Users, Zap, Star, Award, Globe, Lock } from 'lucide-react';
+import GradientHeading from './GradientHeading';
 
 const WhyChoose = () => {
   const features = [
@@ -53,35 +54,31 @@ const WhyChoose = () => {
   ];
 
   return (
-    <div className="min-h-screen  bg-gradient-to-br from-gray-900 via-gray-800 text-white">
-      {/* Hero Section */}
+    <div className="min-h-screen">
       <div className="relative  overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-600/20 to-blue-600/20"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 py-20 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">
-            Why Choose <span className="text-teal-400">Yumeko AI</span>?
-          </h1>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 py-10 text-center"> 
+          <GradientHeading text="Why Choose Yumeko AI" />
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Discover what makes us the preferred choice for cryptocurrency enthusiasts and investors worldwide
           </p>
         </div>
-         <div className="max-w-7xl mb-10 text-white mx-auto bg-gray-900/60 border border-gray-700 rounded-2xl p-8 md:p-12 shadow-xl backdrop-blur-sm">
+        <div className="max-w-7xl  text-white mx-auto bg-gray-900/60  rounded-2xl shadow-xl backdrop-blur-sm">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
-              <div 
+              <div
                 key={index}
                 className="group border border-gray-700 p-6 rounded-xl hover:shadow-2xl transition-all duration-500 hover:border-teal-400 hover:bg-gray-800/50 cursor-pointer transform hover:-translate-y-2"
               >
-                <div className="text-teal-400 mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-bg-color mb-4">
                   {feature.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-teal-400 transition-colors duration-300">
+                <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-bg-color transition-colors duration-300">
                   {feature.title}
                 </h3>
                 <p className="text-sm text-gray-300 text-white mb-4">
                   {feature.description}
                 </p>
-                <p className="text-xs text-gray-400 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-xs text-gray-400 text-white">
                   {feature.detail}
                 </p>
               </div>
@@ -91,11 +88,11 @@ const WhyChoose = () => {
       </div>
 
       {/* Main Features Section */}
-   
 
 
 
-   
+
+
 
     </div>
   );

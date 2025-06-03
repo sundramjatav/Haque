@@ -3,6 +3,7 @@ import yumekoLogo from '../../assets/yumeko-logo-white.png'
 import Mission from './Mission'
 import Vision from './Vision'
 import InfoTabs from './InfoTabs'
+import GradientHeading from './GradientHeading'
 
 const AboutUs = () => {
     const links = [
@@ -48,19 +49,18 @@ const AboutUs = () => {
                 <div className="flex flex-col lg:flex-row items-center gap-10 mx-auto max-w-4xl lg:max-w-7xl">
                     {/* Left: Text */}
                     <div className="flex-1 max-w-2xl lg:mx-0">
-                        <h2 className="text-4xl md:text-6xl font-semibold tracking-tight bg-gradient-to-br from-white to-gray-400 bg-clip-text  leading-tight text-transparent">About Us</h2>
-                        <p className="md:mt-8 mt-3 text-pretty text-base font-medium text-gray-300 sm:text-xl/8">
-
-Yumeko Ai is a pioneering cryptocurrency company focused on providing
-innovative blockchain solutions for earning and investing. Our mission is to
-empower individuals and businesses to achieve exceptional financial
-growth through secure and profitable opportunities. With a team of
-experienced professionals, we offer a range of services including  staking,
-trading crypto, forex market,
-mining, and decentralized finance (DeFi) projects.
-At Yumeko Ai, we prioritize security and transparency, ensuring that your
-investments are protected and optimized for maximum returns. Join us at
-Yumeko Ai and take your first step towards a prosperous financial future.
+                        <GradientHeading text="About Us" />
+                        <p className="md:mt-8 mt-3 text-pretty text-base font-medium text-gray-300 ">
+                            Yumeko Ai is a pioneering cryptocurrency company focused on providing
+                            innovative blockchain solutions for earning and investing. Our mission is to
+                            empower individuals and businesses to achieve exceptional financial
+                            growth through secure and profitable opportunities. With a team of
+                            experienced professionals, we offer a range of services including  staking,
+                            trading crypto, forex market,
+                            mining, and decentralized finance (DeFi) projects.
+                            At Yumeko Ai, we prioritize security and transparency, ensuring that your
+                            investments are protected and optimized for maximum returns. Join us at
+                            Yumeko Ai and take your first step towards a prosperous financial future.
                         </p>
                     </div>
                     {/* Right: Image */}
@@ -86,7 +86,7 @@ Yumeko Ai and take your first step towards a prosperous financial future.
                     </dl>
                 </div>
             </div>
-   
+
 
         </div>
     )

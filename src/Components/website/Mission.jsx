@@ -1,5 +1,6 @@
 import React from 'react';
 import mission from '../../assets/Landing/mission.jpg'
+import GradientHeading from './GradientHeading';
 
 const Mission = () => {
   return (
@@ -16,7 +17,8 @@ const Mission = () => {
 
         {/* Right - Content */}
         <div className="w-full md:w-1/2 text-center md:text-left">
-          <h1 className="text-4xl md:text-5xl font-bold text-teal-300 mb-6">Our Mission</h1>
+          {/* <h1 className="text-4xl md:text-5xl font-bold text-teal-300 mb-6">Our Mission</h1> */}
+          <GradientHeading text="Our Mission" />
           <p className="text-lg md:text-xl leading-relaxed text-gray-200">
             At <span className="font-semibold text-white">Yumeko AI</span>, our mission is to empower individuals and businesses
             to achieve unparalleled financial growth through cutting-edge blockchain solutions.

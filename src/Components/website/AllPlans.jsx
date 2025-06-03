@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { HiCheck } from "react-icons/hi";
 import { RiCloseFill } from "react-icons/ri";
 import { getAllPlans } from "../../Api/user.api";
+import GradientHeading from "./GradientHeading";
 
 const AllPlans = () => {
     const [plans, setPlans] = useState([]);
@@ -66,7 +67,8 @@ const AllPlans = () => {
     return (
         <div className="px-4 sm:px-8 py-12 text-center relative">
             <p className="text-sm text-bg-color font-medium mb-2">Investment Plans</p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Choose the Best Plan for You</h2>
+            {/* <h2 className="text-3xl md:text-4xl font-bold mb-4">Choose the Best Plan for You</h2> */}
+             <GradientHeading text="Choose the Best Plan for You" />
             <p className="text-gray-400 mb-12 max-w-2xl mx-auto">
                 Explore our investment options tailored to your financial goals. Whether you're just starting or a seasoned investor, there's a plan for you.
             </p>
