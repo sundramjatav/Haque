@@ -11,7 +11,7 @@ import Loader from '../../../Components/Loader';
 import TextareaField from '../../../Components/TextareaField';
 
 const AddBanner = () => {
-  const requiredFields = ['title', 'description', 'status', 'file',];
+  const requiredFields = ['title', 'description', 'status', 'file','type'];
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);

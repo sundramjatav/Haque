@@ -28,47 +28,26 @@ const DirectReferral = () => {
         fetchData();
       }, []);
     
-      // const cardData = [
-      //   { title: 'Total Referral', value: `${data?.totalWithdrawal || 0}`, img: 'https://img.icons8.com/3d-fluency/94/conference-call.png' },
-      //   { title: 'Today Referral', value: `${data?.totalTodayWithdrawal || 0}`, img: 'https://img.icons8.com/3d-plastilina/69/share--v1.png' },
-      // ];
   return (
-    ///comments
     <div className='flex flex-col gap-5'>
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {cardData?.map((card, idx) => (
-          <div
-            key={idx}
-            className="bg-[#ffffff13] backdrop-blur-md rounded-xl p-4 flex justify-between items-center shadow-md"
-          >
-            <div>
-              <h4 className="text-lg">{card.title}</h4>
-              <p className="text-2xl font-semibold">{card.value}</p>
-            </div>
-            <div className="">
-              <img src={card.img} className='h-20' alt="" />
-            </div>
-          </div>
-        ))}
-      </div> */}
      <TableComponent
         title={title}
         headers={headers}
         data={data}
-        searchKeys={["id", "username", "account"]}
-        searchKey={"User ID"}
+        searchKeys={["name", "walletAddress"]}
+        searchKey={"User Name or WalletAddress "}
         renderRow={(item, index) => (
           <>
-            <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{index + 1}</td>
-            <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.id || item?.username}</td>
+            <td className="border-r border-b border-text-white/40 p-2 md:p-3 ">{index + 1}</td>
+            <td className="border-r border-b border-text-white/40 p-2 md:p-3 ">{item?.id || item?.name}</td>
             <td className='border-r border-b border-text-white/20 p-2 md:p-3'>
-              {item?.account?.slice(0, 6)}...{item?.account?.slice(-6)}
+              {item?.walletAddress?.slice(0, 6)}...{item?.walletAddress?.slice(-6)}
             </td>
-            <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">
-              {item?.active?.isVerified ? "Yes" : "No"}
+            <td className={`border-r border-b border-text-white/20 p-2 md:p-3 font-semibold ${item?.isActive ? "text-green-500":"text-red-500"} `}>
+              {item?.isActive ? "Yes" : "No "}
             </td>
-            <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.referralLink}</td>
-            <td className="border-b border-text-white/40 p-2 md:p-3 text-center">
+            <td className="border-r border-b border-text-white/40 p-2 md:p-3 ">{item?.referralLink}</td>
+            <td className="border-b border-text-white/40 p-2 md:p-3 ">
               {new Date(item?.createdAt).toLocaleString()}
             </td>
           </>

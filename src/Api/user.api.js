@@ -22,9 +22,18 @@ export async function registerUserWithWallet(payload) {
   }
 }
 
+export async function verifyOtp(payload) {
+  try {
+    const response = await Axios.post(`${userApi}/user-otp-verify`, payload);
+    return response?.data;
+  } catch (error) {
+    return error?.response.data;
+  }
+}
+
 export async function userProfile() {
   try {
-    const response = await Axios.get(`${userApi}/get-user`);
+    const response = await Axios.get(`${userApi}/profile`);
     return response?.data;
   } catch (error) {
     return error?.response.data;
@@ -155,9 +164,9 @@ export async function getTradingProfitHistory() {
 
 
 
-export async function getLevelIncomeHistory() {
+export async function getDailyROIHistory() {
   try {
-    const response = await Axios.get(`${userApi}/get-levelincome-history`);
+    const response = await Axios.get(`${userApi}/daily-roi-history`);
     return response?.data;
   } catch (error) {
     return error?.response?.data;
@@ -189,7 +198,7 @@ export async function getReferralIncomeHistory() {
 }
 export async function getInvestmentReports() {
   try {
-    const response = await Axios.get(`${userApi}/get-investment-reports`);
+    const response = await Axios.get(`${userApi}/get-investment-history`);
     return response?.data;
   } catch (error) {
     return error?.response?.data;

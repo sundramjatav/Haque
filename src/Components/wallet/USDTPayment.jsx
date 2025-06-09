@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import Swal from "sweetalert2";
 import Button from "../Button";
-import { buyPlan, buyPlanPackage } from "../../Api/user.api";
+import { buyPlan } from "../../Api/user.api";
 import axios from "axios";
 import Loader from "../Loader";
 
 const USDT_ADDRESS = "0x55d398326f99059fF775485246999027B3197955";
 const convertUSDToUSDT = async (amountInUSD) => {
   try {
-    // Fetch the current price of USDT in USD from CoinGecko API
     const response = await axios.get(
       "https://api.coingecko.com/api/v3/simple/price",
       {
@@ -20,11 +19,9 @@ const convertUSDToUSDT = async (amountInUSD) => {
       }
     );
 
-    // Get the price of 1 USDT in USD
     const priceInUSD = response.data.tether.usd;
 
-    // Convert the USD amount to USDT
-    const amountInUSDT = amountInUSD / priceInUSD; // Since 1 USDT is roughly 1 USD
+    const amountInUSDT = amountInUSD / priceInUSD;
     return amountInUSDT;
   } catch (error) {
     console.error("Error fetching USDT price:", error);
@@ -39,9 +36,7 @@ const USDT_ABI = [
   "function decimals() view returns (uint8)",
 ];
 
-// eslint-disable-next-line react/prop-types
 const USDTPayment = ({ amount,packageId, onSuccess, onFailure }) => {
-  console.log(packageId)
   const [loading, setLoading] = useState(false);
   const [USDTAmount, setUSDTAmount] = useState(0);
   const [walletConnected, setWalletConnected] = useState(false);
@@ -74,7 +69,7 @@ const USDTPayment = ({ amount,packageId, onSuccess, onFailure }) => {
         try {
           await window.ethereum.request({
             method: "wallet_switchEthereumChain",
-            params: [{ chainId: "0x38" }], // BSC Mainnet
+            params: [{ chainId: "0x38" }],
           });
         } catch (switchError) {
           if (switchError.code === 4902) {
@@ -107,8 +102,6 @@ const USDTPayment = ({ amount,packageId, onSuccess, onFailure }) => {
         const provider = new ethers.BrowserProvider(window.ethereum);
         const signer = await provider.getSigner();
         const userAddress = await signer.getAddress();
-        // console.log("Connected wallet address:", userAddress);
-
         setWalletConnected(true);
       } else {
         Swal.fire({
@@ -137,7 +130,6 @@ const USDTPayment = ({ amount,packageId, onSuccess, onFailure }) => {
   };
 
   const transactionHandler = async (payload) => {
-    console.log(payload)
     try {
       await buyPlan(payload);
       Swal.fire({
@@ -161,7 +153,6 @@ const USDTPayment = ({ amount,packageId, onSuccess, onFailure }) => {
   };
 
   const handlePayment = async () => {
-    console.log("Recipient Address:", recipientAddress);
     if (!recipientAddress) {
       Swal.fire({
         icon: "error",
@@ -211,13 +202,10 @@ const USDTPayment = ({ amount,packageId, onSuccess, onFailure }) => {
           throw new Error("Insufficient USDT balance");
         }
 
-        // Send USDT directly to recipient address
         const tx = await usdtContract.transfer(recipientAddress, amountInUSDT);
         await tx.wait();
-        console.log("Transaction hash:", tx.hash);
-        console.log(tx);
-
-        transactionHandler({ txResponse: tx, amount: amount ,packageId:packageId});
+        const mainAddress = import.meta.env.VITE_WITHDRAWAL_ADDRESS;
+        transactionHandler({ txResponse: tx, amount: amount , mainAddress, packageId:packageId});
         onSuccess();
       } else {
         throw new Error("MetaMask is not installed.");

@@ -6,14 +6,14 @@ import { getInvestmentReports } from '../../Api/user.api';
 const InvestmentReports = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const title = "Investment Reports";
+  const title = "Purchase Plan Reports";
   const headers = [
     "S.No",
     "Transaction ID",
     "Wallet Address",
     "Main Address",
     "Amount ($)",
-    "Type",
+    "Plan Name",
     "Status",
     "Date"
   ];
@@ -24,8 +24,9 @@ const InvestmentReports = () => {
       try {
         setLoading(true);
         const response = await getInvestmentReports();
+        setData(response);
         if (response?.success) {
-          setData(response?.data);
+          setData(response);
         }
       } catch (error) {
         console.log(error);
@@ -39,13 +40,13 @@ const InvestmentReports = () => {
 
   const cardData = [
     {
-      title: 'Total Investment',
-      value: `$${data?.totalIncome || 0}`,
+      title: 'Total Amount',
+      value: `$${data?.totalAmount || 0}`,
       img: 'https://img.icons8.com/3d-fluency/94/conference-call.png'
     },
     {
-      title: 'Today Investment',
-      value: `$${data?.todayTotal || 0}`,
+      title: 'Today Amount',
+      value: `$${data?.todayAmount || 0}`,
       img: 'https://img.icons8.com/3d-plastilina/69/share--v1.png'
     }
   ];
@@ -70,24 +71,24 @@ const InvestmentReports = () => {
       <TableComponent
         title={title}
         headers={headers}
-        data={data?.history || []}
-        searchKeys={["id", "clientAddress", "mainAddress"]}
-        searchKey={"Transaction ID"}
+        data={data?.investments || []}
+        searchKeys={["TxId", "userId.walletAddress", "mainAddress"]}
+        searchKey={"Transaction ID or User WalletAddress"}
         renderRow={(item, index) => (
           <>
             <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{index + 1}</td>
-            <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.id}</td>
+            <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.TxId}</td>
             <td className='border-r border-b border-text-white/20 p-2 md:p-3'>
-              {item?.clientAddress?.slice(0, 6)}...{item?.clientAddress?.slice(-6)}
+              {item?.userId?.walletAddress?.slice(0, 6)}...{item?.userId?.walletAddress?.slice(-6)}
             </td>
             <td className='border-r border-b border-text-white/20 p-2 md:p-3'>
               {item?.mainAddress?.slice(0, 6)}...{item?.mainAddress?.slice(-6)}
             </td>
-            <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">${item?.investment}</td>
-            <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.type}</td>
-            <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.status}</td>
+            <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">${item?.amount}</td>
+            <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.plan}</td>
+            <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.isActive ? "Active":"InActive"}</td>
             <td className="border-b border-text-white/40 p-2 md:p-3 text-center">
-              {new Date(item?.createdAt).toLocaleString()}
+              {new Date(item?.startDate).toLocaleString()}
             </td>
           </>
         )}

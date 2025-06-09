@@ -19,11 +19,11 @@ const Profile = () => {
     useEffect(() => {
         if (user) {
             setFormData({
-                name: user?.username || '',
+                name: user?.name || '',
                 mobile: user?.mobile || '',
                 email: user?.email || '',
                 date: user?.createdAt?.split('T')[0] || '',
-                status: user?.active?.isActive ?? false,
+                status: user?.isActive ?? false,
             });
             setLoading(false);
         }
@@ -31,8 +31,8 @@ const Profile = () => {
 
     const fields = [
         { label: "Name*", name: "name" },
-        // { label: "Mobile*", name: "mobile", type: "number" },
-        // { label: "Email*", name: "email", type: "email" },
+        { label: "Mobile*", name: "mobile", type: "number" },
+        { label: "Email*", name: "email", type: "email" },
         { label: "Joining Date*", name: "date", type: "date" },
         {
             label: 'Status*',
@@ -73,6 +73,7 @@ const Profile = () => {
 
         return (
             <InputField
+                disabled
                 key={field.name}
                 label={field.label}
                 name={field.name}

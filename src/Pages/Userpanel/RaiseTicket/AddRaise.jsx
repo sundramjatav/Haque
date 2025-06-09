@@ -7,9 +7,8 @@ import Swal from 'sweetalert2';
 import Loader from '../../../Components/Loader';
 const AddRaise = () => {
   const [formData, setFormData] = useState({
-    subject: null,
+    subject: "",
     message: "",
-    natureOfComplain: ""
   });
   const [loading, setLoading] = useState(false);
 
@@ -53,13 +52,12 @@ const AddRaise = () => {
       setLoading(false);
       setFormData({
         message: "",
-        subject: null,
-        natureOfComplain: ""
+        subject: "",
       })
     }
   }
   const fields = [
-    { label: "Issue*", name: "natureOfComplain" },
+    { label: "Issue*", name: "subject" },
     { label: "Message*", name: "message" },
   ];
   const renderField = (field) => {
@@ -84,7 +82,7 @@ const AddRaise = () => {
             {fields.map(renderField)}
           </div>
           <div className="flex items-center flex-wrap gap-2">
-            <Button onClick={() => setFormData({ subject: null, message: "", natureOfComplain: "" })}
+            <Button onClick={() => setFormData({ subject: "", message: "",})}
               title="Reset"
               className="px-7 py-2 text-sm border-white border  rounded"
               type="reset"

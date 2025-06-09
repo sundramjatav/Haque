@@ -130,7 +130,8 @@ const AdminLayout = () => {
   };
 
   const user = useSelector((state) => state.auth);
-  const name = user?.user?.username
+  console.log(user);
+  const name = user?.user?.name
   const email = user?.user?.email
 
   return (

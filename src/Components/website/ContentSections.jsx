@@ -5,7 +5,7 @@ const ContentSections = () => {
   return (
     <div className="relative isolate overflow-hidden px-6 py-10 sm:py-16 lg:overflow-visible lg:px-0">
       <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 md:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 ">
           <div className="lg:pr-4">
             <div className="lg:max-w-lg">
               <p className="text-base/7 font-semibold text-bg-color">Who We Are</p>
@@ -25,7 +25,7 @@ const ContentSections = () => {
             className="md:w-[48rem] w-[28rem] md:mt-0 mt-10 max-w-none rounded-xl bg-gray-900 shadow-xl border sm:w-[57rem]"
           />
         </div>
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
           <div className="lg:pr-4">
             <div className="max-w-xl text-base/5 font-light text-gray-700 lg:max-w-lg">
               <p>

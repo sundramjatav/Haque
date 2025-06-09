@@ -31,11 +31,12 @@ function Login() {
         ...payload,
         walletAddress: walletAddRef.current,
       });
+      
       if (response?.success) {
         dispatch(loginSuccess({
           token: response?.token,
           role: response?.role,
-          user: response?.data,
+          user: response?.user,
         }));
 
         Swal.fire({

@@ -36,20 +36,22 @@ const Referrals = () => {
           title={title}
           headers={headers}
           data={data}
-          searchKeys={["id", "username", "account"]}
-          searchKey={"User ID"}
+          searchKeys={["name", "walletAddress"]}
+          searchKey={"User Name or WalletAddress "}
           renderRow={(item, index) => (
             <>
-              <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{index + 1}</td>
-              <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.id || item?.username}</td>
+              <td className="border-r border-b border-text-white/40 p-2 md:p-3 ">{index + 1}</td>
+              <td className="border-r border-b border-text-white/40 p-2 md:p-3 ">{item?.id || item?.name}</td>
               <td className='border-r border-b border-text-white/20 p-2 md:p-3'>
-                {item?.account?.slice(0, 6)}...{item?.account?.slice(-6)}
+                {item?.walletAddress?.slice(0, 6)}...{item?.walletAddress?.slice(-6)}
               </td>
-              <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">
-                {item?.active?.isVerified ? "Yes" : "No"}
+              <td className={`border-r border-b border-text-white/20 p-2 md:p-3 font-semibold ${item?.isActive ? "text-green-500" : "text-red-500"} `}>
+                {item?.isActive ? "Yes" : "No "}
               </td>
-              <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.referralLink}</td>
-              <td className='border-b border-text-white/20 p-2 md:p-3'>{new Date(item?.createdAt).toLocaleString()}</td>
+              <td className="border-r border-b border-text-white/40 p-2 md:p-3 ">{item?.referralLink}</td>
+              <td className="border-b border-text-white/40 p-2 md:p-3 ">
+                {new Date(item?.createdAt).toLocaleString()}
+              </td>
             </>
           )}
         />

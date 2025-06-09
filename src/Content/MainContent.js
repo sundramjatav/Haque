@@ -4,17 +4,17 @@ import logo1 from '../assets/yemeko-logo.jpg'
 import { store } from '../Redux/store';
 
 export const MainContent = {
-  AppName: "Yumeko AI World",
+  AppName: "Trade Mint Pro",
   AppLogo: logo,
   appFavicon: logo1,
 }
 
 export const backendConfig = {
-  // base: "http://192.168.48.186:3000/api",
-  // origin: "http://192.168.48.186:3000", 
+  base: "http://192.168.1.55:5000/api",
+  origin: "http://192.168.1.55:5000", 
 
-  base: "https://yumeko.api.smartchainstudio.in/api",
-  origin: "https://yumeko.api.smartchainstudio.in/",
+  // base: "https://yumeko.api.smartchainstudio.in/api",
+  // origin: "https://yumeko.api.smartchainstudio.in/",
 };
 
 export const Axios = axios.create({

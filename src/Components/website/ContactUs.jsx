@@ -10,13 +10,11 @@ const ContactUs = () => {
     message: ''
   });
 
-  // Mock API call
   const supportAPI = async (data) => {
     await new Promise(resolve => setTimeout(resolve, 2000));
     return { success: true, message: "Thank you for contacting us! We'll get back to you soon." };
   };
 
-  // Simple Swal mock
   const Swal = {
     fire: ({ icon, text }) => {
       alert(`${icon.toUpperCase()}: ${text}`);
@@ -62,7 +60,6 @@ const ContactUs = () => {
 
   return (
     <div className="min-h-screen p-4 sm:p-6 lg:p-8 bg-gray-900 text-white">
-      {/* Animated background elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -70,7 +67,6 @@ const ContactUs = () => {
       </div>
 
       <div className="relative max-w-7xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-6 shadow-2xl">
             <img
@@ -89,18 +85,18 @@ const ContactUs = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-10">
-          {/* Contact Info */}
-          <div className="bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 p-6 sm:p-8 shadow-2xl space-y-6">
+          <div className="bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 p-3 sm:p-8 shadow-2xl space-y-6">
             <h3 className="text-2xl font-bold text-white flex items-center gap-3">
               <div className="w-8 h-8 bg-gradient-to-r from-green-400 to-blue-500 rounded-full"></div>
               Contact Information
             </h3>
 
-            {/* Email */}
-            <div className="group hover:bg-white/5 transition rounded-2xl p-4 border border-transparent hover:border-white/10">
+            <div className="group hover:bg-white/5 transition rounded-2xl p-2 py-3 border border-transparent hover:border-white/10">
               <div className="flex space-x-4 items-start">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
-                  <FaEnvelope className="text-white" size={18} />
+                <div>
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
+                    <FaEnvelope className="text-white" size={18} />
+                  </div>
                 </div>
                 <div>
                   <div className="font-semibold text-sm sm:text-base mb-1">Email</div>
@@ -114,11 +110,12 @@ const ContactUs = () => {
               </div>
             </div>
 
-            {/* London */}
-            <div className="group hover:bg-white/5 transition rounded-2xl p-4 border border-transparent hover:border-white/10">
+            <div className="group hover:bg-white/5 transition rounded-2xl p-2 py-3 border border-transparent hover:border-white/10">
               <div className="flex space-x-4 items-start">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
-                  <FaMapMarkerAlt className="text-white" size={18} />
+                <div>
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
+                    <FaMapMarkerAlt className="text-white" size={18} />
+                  </div>
                 </div>
                 <div>
                   <div className="font-semibold text-sm sm:text-base mb-1">London Office</div>
@@ -127,11 +124,12 @@ const ContactUs = () => {
               </div>
             </div>
 
-            {/* Dubai */}
-            <div className="group hover:bg-white/5 transition rounded-2xl p-4 border border-transparent hover:border-white/10">
+            <div className="group hover:bg-white/5 transition rounded-2xl p-2 py-3 border border-transparent hover:border-white/10">
               <div className="flex space-x-4 items-start">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-                  <FaMapMarkerAlt className="text-white" size={18} />
+                <div>
+                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                    <FaMapMarkerAlt className="text-white" size={18} />
+                  </div>
                 </div>
                 <div>
                   <div className="font-semibold text-sm sm:text-base mb-1">Dubai Office</div>
@@ -145,8 +143,7 @@ const ContactUs = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="rounded-3xl border border-white/20 p-6 sm:p-8 shadow-2xl space-y-6">
+          <form onSubmit={handleSubmit} className="rounded-3xl border border-white/20 p-3 sm:p-8 shadow-2xl space-y-6">
             <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
               <div className="w-8 h-8 bg-gradient-to-r from-orange-400 to-red-500 rounded-full"></div>
               Send us a Message

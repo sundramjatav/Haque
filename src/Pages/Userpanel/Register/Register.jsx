@@ -1,15 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react'
-import  { AuroraHero } from '../../../Layouts/AuroraHero'
+import { AuroraHero } from '../../../Layouts/AuroraHero'
 import InputField from '../../../Components/InputField'
 import Button from '../../../Components/Button'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Routers } from '../../../Routes/Routers'
 import { MainContent } from '../../../Content/MainContent'
 import { ethers } from 'ethers'
-import { registerUserWithWallet } from '../../../Api/user.api'
+import { registerUserWithWallet, verifyOtp } from '../../../Api/user.api'
 import Swal from 'sweetalert2'
 import { useDispatch } from 'react-redux'
 import { loginSuccess } from '../../../Redux/Reducer/authReducer'
+import OtpPopup from '../../../Components/OtpPopup'
+import Loader from '../../../Components/Loader'
 
 function Register() {
   const navigate = useNavigate();
@@ -17,7 +19,11 @@ function Register() {
   const query = useLocation();
   const walletAddRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  const [isOtpOpen, setIsOtpOpen] = useState(false);
   const [payload, setPayload] = useState({
+    email: "",
+    mobile: "",
+    username: "",
     walletAddress: "",
     referral: ""
   });
@@ -29,8 +35,12 @@ function Register() {
   };
   const handleSubmit = async () => {
     if (loading) return;
-
     setLoading(true);
+    console.log({
+      ...payload,
+      walletAddress: walletAddRef.current
+    });
+
     try {
       const response = await registerUserWithWallet({
         ...payload,
@@ -38,11 +48,6 @@ function Register() {
       });
 
       if (response?.success) {
-        dispatch(loginSuccess({
-          token: response?.token,
-          role: response?.role,
-          user: response?.user,
-        }));
         Swal.fire({
           icon: "success",
           text: response?.message,
@@ -51,9 +56,8 @@ function Register() {
           position: 'top-end',
           showConfirmButton: false,
           timerProgressBar: true,
-        }).then(() => {
-          handleNavigate();
-        });
+        })
+        setIsOtpOpen(true);
       } else {
         Swal.fire({
           icon: "error",
@@ -65,7 +69,6 @@ function Register() {
           timerProgressBar: true,
         });
       }
-
     } catch (error) {
       console.log(error);
       Swal.fire({
@@ -109,12 +112,48 @@ function Register() {
       })
     }
   };
-
   useEffect(() => {
     if (alreadyReferalCode) {
       setPayload((prev) => ({ ...prev, referral: alreadyReferalCode }));
     }
   }, [alreadyReferalCode]);
+
+  const handleOtpSubmit = async (otp) => {
+    const otpdata = {
+      email: payload.email,
+      otp: otp,
+    };
+    const response = await verifyOtp(otpdata);
+    if (response?.success) {
+      dispatch(loginSuccess({
+        token: response?.token,
+        role: response?.role,
+        user: response?.user,
+      }));
+      Swal.fire({
+        icon: "success",
+        text: response?.message,
+        timer: 3000,
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timerProgressBar: true,
+      }).then(() => {
+        handleNavigate();
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        text: response?.message || "Please try again",
+        timer: 3000,
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timerProgressBar: true,
+      });
+    }
+  }
+
   return (
     <div>
       <div className='absolute top-0 left-0 w-full h-screen -z-10 '>
@@ -128,9 +167,21 @@ function Register() {
             </div>
             <h1 className='text-2xl text-center font-semibold text-text-white'>User Register</h1>
             <form className='flex flex-col gap-5'>
-              {/* <InputField type='text' label="Full Name" placeholder="Enter your Fullname" onChange={(e) => setPayload({ ...payload, username: e.target.value })} />
+              <InputField type='text' label="Full Name" placeholder="Enter your Fullname" onChange={(e) => setPayload({ ...payload, username: e.target.value })} />
               <InputField type='email' label="Email" placeholder="Enter your Email" onChange={(e) => setPayload({ ...payload, email: e.target.value })} />
-              <InputField type="tel" label="Mobile No." placeholder="Enter your mobile number" onChange={(e) => setPayload({ ...payload, mobile: e.target.value })} /> */}
+              <InputField
+                type="tel"
+                label="Mobile No."
+                placeholder="Enter your mobile number"
+                value={payload.mobile || ''}
+                maxLength={10}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (/^\d{0,10}$/.test(value)) {
+                    setPayload({ ...payload, mobile: value });
+                  }
+                }}
+              />
               <InputField type="text" label="Referral code" placeholder="Enter your Referral code" value={payload.referral} onChange={(e) => setPayload({ ...payload, referral: e.target.value })} />
               <div className='flex flex-col gap-2 text-text-white'>
                 <Button type="submit" title={'Connect Wallet'} className="bg-bg-color text-text-white rounded-lg p-2 shadow-md" onClick={connectWallet} disabled={loading} />
@@ -140,6 +191,14 @@ function Register() {
           </div>
         </div>
       </div>
+
+      <OtpPopup isOpen={isOtpOpen} onClose={() => setIsOtpOpen(false)} onSubmit={handleOtpSubmit} />
+
+      {loading && (
+        <div>
+          <Loader />
+        </div>
+      )}
     </div>
   )
 }

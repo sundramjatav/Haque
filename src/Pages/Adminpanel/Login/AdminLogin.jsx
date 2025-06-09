@@ -7,7 +7,6 @@ import { loginAdmin } from '../../../Api/admin.api';
 import Swal from 'sweetalert2';
 import { loginSuccess } from '../../../Redux/Reducer/authReducer';
 import { useDispatch } from 'react-redux';
-import Navigate from '../../../Components/Navigate';
 import { Routers } from '../../../Routes/Routers';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../../../Components/Loader';
@@ -15,7 +14,7 @@ import Loader from '../../../Components/Loader';
 function AdminLogin() {
     const navigate = useNavigate();
     const dispatch = useDispatch()
-    const [formData, setFormData] = useState({ email: 'admin@gmail.com', password: 'Test@123' });
+    const [formData, setFormData] = useState({ email: 'admin@gmail.com', password: 'Admin@123' });
     const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {

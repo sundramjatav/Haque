@@ -29,11 +29,11 @@ const TopSection = ({ data, user }) => {
 
   return (
     <div className=" text-white font-sans rounded-xl flex flex-col gap-4">
-      <div className="bg-[#ffffff13] col-span-1 backdrop-blur-md p-4 rounded-xl flex items-center gap-10">
+      <div className="bg-[#ffffff13] col-span-1  backdrop-blur-md p-4 rounded-xl flex flex-col md:flex-row items-center gap-10">
         <img src={img} className="h-60" alt="Welcome Banner" />
         <div>
           <h2 className="text-3xl font-semibold capitalize">
-            <span className="text-white">Hello</span> {user?.username} 👋
+            <span className="text-white">Hello</span> {user?.name} 👋
           </h2>
           <p className="mt-2">
             Welcome aboard!<br />

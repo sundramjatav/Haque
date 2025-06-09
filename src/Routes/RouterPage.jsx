@@ -70,7 +70,7 @@ const RouterPages = () => {
             loginSuccess({
               token: data.token,
               role: data.role,
-              user: data.data,
+              user: data.user,
             })
           );
         }

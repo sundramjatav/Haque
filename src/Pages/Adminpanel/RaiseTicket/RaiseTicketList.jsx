@@ -18,7 +18,7 @@ const RaiseTicketList = () => {
         try {
             const response = await allSupportReports();
             if (response.success) {
-                setData(response.data);
+                setData(response?.tickets);
             }
         } catch (error) {
             console.error("Error fetching tickets:", error);
@@ -83,14 +83,14 @@ const RaiseTicketList = () => {
                 title={title}
                 headers={headers}
                 data={data}
-                searchKeys={["id", "user.username"]}
+                searchKeys={["_id", "userId.name"]}
                 searchKey={"Support ID or Username"}
                 renderRow={(item, index) => (
                     <>
                         <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{index + 1}</td>
-                        <td className='border-r border-b border-text-white/40 p-2 md:p-3'>{item?.id}</td>
-                        <td className='border-r border-b border-text-white/40 p-2 md:p-3'>{item?.user?.username}</td>
-                        <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.natureOfComplain}</td>
+                        <td className='border-r border-b border-text-white/40 p-2 md:p-3'>{item?._id}</td>
+                        <td className='border-r border-b border-text-white/40 p-2 md:p-3'>{item?.userId?.name}</td>
+                        <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.subject}</td>
                         <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.message}</td>
                         <td className={`border-r border-b border-text-white/40 p-2 md:p-3 text-center
                             ${item?.status === "Pending" ? "text-yellow-500" : ""}
@@ -127,10 +127,9 @@ const RaiseTicketList = () => {
                                 <IoClose size={24} className='text-red-500' />
                             </button>
                         </div>
-
-                        <p><strong>Support ID:</strong> {selectedTicket?.id}</p>
-                        <p><strong>Username:</strong> {selectedTicket?.user?.username}</p>
-                        <p><strong>Issue:</strong> {selectedTicket?.natureOfComplain}</p>
+                        <p><strong>Support ID:</strong> {selectedTicket?._id}</p>
+                        <p><strong>Username:</strong> {selectedTicket?.userId?.name}</p>
+                        <p><strong>Issue:</strong> {selectedTicket?.subject}</p>
                         <p><strong>Message:</strong> {selectedTicket?.message}</p>
                         <p><strong>Status:</strong> {selectedTicket?.status}</p>
                         <p><strong>Date:</strong> {new Date(selectedTicket?.createdAt).toLocaleString()}</p>
@@ -147,7 +146,6 @@ const RaiseTicketList = () => {
                                 onChange={(e) => setSelectedTicket({ ...selectedTicket, status: e.target.value })}
                             />
                         </div>
-
                         <div>
                             <p className="mt-4"><strong>Response:</strong></p>
                             <textarea

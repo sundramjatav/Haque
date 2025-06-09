@@ -36,7 +36,7 @@ const TableComponent = ({ title, headers, data, renderRow, searchKeys = [], sear
                         <BackButton />
                         <h1 className='text-sm md:text-lg font-medium'>{title}</h1>
                     </div>
-                    {showSearch && <div className="flex items-center gap-2 px-4 bg-text-white rounded-lg border w-full md:w-auto text-black">
+                    {showSearch && <div className="flex items-center gap-2 px-4 bg-text-white  rounded-lg border border-white w-full md:w-auto text-black">
                         <input
                             type="text"
                             placeholder={`Search by ${searchKey || 'value'}`}

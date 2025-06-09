@@ -33,13 +33,13 @@ const FAQSection = () => {
     };
 
     return (
-        <div className=" text-white py-16 px-4 relative">
+        <div className=" text-white py-16 px-4 relative overflow-hidden">
             <div className="max-w-5xl mx-auto text-center">
                 <p className="text-sm text-bg-color font-medium mb-2">Frequently Asked Questions</p>
                 <GradientHeading text="Questions & Answers" />
                 {/* <h2 className="text-3xl md:text-4xl font-bold mb-4">Questions & Answers</h2> */}
                 <p className="text-gray-400 mb-12 max-w-xl mx-auto">
-                    Everything you need to know about Yumeko Ai, its stability, usage, and availability. If you have more questions, feel free to reach out.
+                    Everything you need to know about Trade Mind Pro, its stability, usage, and availability. If you have more questions, feel free to reach out.
                 </p>
 
                 <div className="space-y-4 text-sm md:text-base" >
@@ -65,7 +65,7 @@ const FAQSection = () => {
             </div>
 
             <div className="">
-                <div className="w-60 h-60 rounded-full bg-bg-color absolute top-0 left-0 blur-3xl opacity-100"></div>
+                <div className="w-60 h-60 rounded-full bg-bg-color absolute top-0 md:left-0 left-60 blur-3xl opacity-100"></div>
             </div>
         </div>
     );

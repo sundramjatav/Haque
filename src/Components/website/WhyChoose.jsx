@@ -54,27 +54,27 @@ const WhyChoose = () => {
   ];
 
   return (
-    <div className="min-h-screen">
-      <div className="relative  overflow-hidden">
-        <div className="relative z-10 max-w-7xl mx-auto px-4 py-10 text-center"> 
-          <GradientHeading text="Why Choose Yumeko AI" />
+    <div className="py-8 sm:py-16 px-5">
+      <div className="flex flex-col gap-10">
+        <div className="max-w-7xl mx-auto text-center">
+          <GradientHeading text="Why Choose Trade Mind Pro" />
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Discover what makes us the preferred choice for cryptocurrency enthusiasts and investors worldwide
           </p>
         </div>
-        <div className="max-w-7xl  text-white mx-auto bg-gray-900/60  rounded-2xl shadow-xl backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto  rounded-2xl shadow-xl backdrop-blur-sm">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <div
                 key={index}
                 className="group border border-gray-700 p-6 rounded-xl hover:shadow-2xl transition-all duration-500 hover:border-teal-400 hover:bg-gray-800/50 cursor-pointer transform hover:-translate-y-2"
               >
-                <div className="text-bg-color mb-4">
+                <div className="text-bg-color mb-4 flex gap-4">
                   {feature.icon}
+                  <h3 className="text-xl font-semibold  mb-3 text-bg-color transition-colors duration-300">
+                    {feature.title}
+                  </h3>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-bg-color transition-colors duration-300">
-                  {feature.title}
-                </h3>
                 <p className="text-sm text-gray-300 text-white mb-4">
                   {feature.description}
                 </p>
@@ -86,14 +86,6 @@ const WhyChoose = () => {
           </div>
         </div>
       </div>
-
-      {/* Main Features Section */}
-
-
-
-
-
-
     </div>
   );
 };

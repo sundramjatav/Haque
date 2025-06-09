@@ -9,8 +9,6 @@ const UserDashboard = () => {
    const user = useSelector((state) => state.auth?.user);
    const [data,setData] = useState([]);
 
-   
-
    useEffect(() => {
      const fetchDashboardDetails = async () => {
        try {

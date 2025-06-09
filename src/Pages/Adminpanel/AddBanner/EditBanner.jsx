@@ -29,7 +29,7 @@ const EditBanner = () => {
             setLoading(true);
             const response = await getSingleBanner(id);
             if (response.success) {
-                setFormData(response.data);
+                setFormData(response.banner);
             }
         } catch (error) {
             console.error("Error fetching banner:", error);
@@ -123,66 +123,69 @@ const EditBanner = () => {
         { label: "Description*", name: "description" },
     ];
 
-    const renderField = (field) => {
-        if (field.type === 'file') {
-            return (
-                <UploadFileInput
-                    key={field.name}
-                    label={field.label}
-                    name={field.name}
-                    onChange={handleChange}
-                    error={errors[field.name]}
-                    accept="image/*"
-                />
-            );
-        }
+const renderField = (field) => {
+    if (!field || !field.name) return null;
 
-        if (field.type === 'select') {
-            const options = field.options.map((opt) =>
-                typeof opt === 'object' ? opt : { label: opt, value: opt }
-            );
-
-            return (
-                <div key={field.name}>
-                    <SelectInput
-                        label={field.label}
-                        name={field.name}
-                        options={options}
-                        value={formData[field.name]}
-                        onChange={handleChange}
-                    />
-                    {errors[field.name] && (
-                        <span className="text-red-500 text-xs">{errors[field.name]}</span>
-                    )}
-                </div>
-            );
-        }
-
-        if (field.name === 'description') {
-            return (
-                <div key={field.name} className="col-span-full">
-                    <TextareaField
-                        label={field.label}
-                        name={field.name}
-                        value={formData[field.name] || ''}
-                        onChange={handleChange}
-                        error={errors[field.name]}
-                        rows={4}
-                    />
-                </div>
-            );
-        }
-
+    if (field.type === 'file') {
         return (
-            <InputField
+            <UploadFileInput
                 key={field.name}
-                {...field}
-                value={formData[field.name] || ''}
+                label={field.label}
+                name={field.name}
                 onChange={handleChange}
                 error={errors[field.name]}
+                accept="image/*"
             />
         );
-    };
+    }
+
+    if (field.type === 'select') {
+        const options = field.options.map((opt) =>
+            typeof opt === 'object' ? opt : { label: opt, value: opt }
+        );
+
+        return (
+            <div key={field.name}>
+                <SelectInput
+                    label={field.label}
+                    name={field.name}
+                    options={options}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                />
+                {errors[field.name] && (
+                    <span className="text-red-500 text-xs">{errors[field.name]}</span>
+                )}
+            </div>
+        );
+    }
+
+    if (field.name === 'description') {
+        return (
+            <div key={field.name} className="col-span-full">
+                <TextareaField
+                    label={field.label}
+                    name={field.name}
+                    value={formData[field.name] || ''}
+                    onChange={handleChange}
+                    error={errors[field.name]}
+                    rows={4}
+                />
+            </div>
+        );
+    }
+
+    return (
+        <InputField
+            key={field.name}
+            {...field}
+            value={formData[field.name] || ''}
+            onChange={handleChange}
+            error={errors[field.name]}
+        />
+    );
+};
+
 
     return (
         <div className="flex flex-col gap-5">
@@ -197,7 +200,7 @@ const EditBanner = () => {
                     className="w-full bg-[#ffffff13] backdrop-blur-md shadow-md rounded-xl p-4 flex flex-col gap-5"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {fields.map(renderField)}
+                        {fields?.map(renderField)}
                     </div>
                     <div className="flex items-center gap-2">
                         <Button

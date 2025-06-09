@@ -39,6 +39,15 @@ export async function BlockUser(id) {
     }
 }
 
+export async function VerifyUser(id) {
+    try {
+    const response = await Axios.get(`${adminApi}/user-verify/${id}`);
+    return response?.data;
+    } catch (error) {
+        return error?.response?.data;
+    }
+}
+
 export async function withdrawalHistory() {
   try {
     const response = await Axios.get(`${adminApi}/get-withdrawal-history`,

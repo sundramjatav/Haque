@@ -41,13 +41,11 @@ const AboutMe = ({ user }) => {
                     <h2 className="text-xl font-semibold mb-4">About Me</h2>   <GenerationStatus partners={user?.activeUsers} />
 
                 </div>
-
-
                 <div className="space-y-2 text-sm">
-                    <p><strong>User Id :</strong> {user?.id}</p>
-                    <p><strong>Sponsor Id :</strong> {user?.sponsor?.username ? user?.sponsor?.username : "N/A"}</p>
-                    <p><strong>Wallet Address :</strong> {user?.account}</p>
-                    <p><strong>Date Of Activation:</strong> {user?.active?.activeDate ? new Date(user?.active?.activeDate).toLocaleString() : "N/A"} </p>
+                    <p><strong>User Id :</strong> {user?._id}</p>
+                    <p><strong>Sponsor Name :</strong> {user?.sponsor?.name ? user?.sponsor?.name : "N/A"}</p>
+                    <p><strong>Wallet Address :</strong> {user?.walletAddress}</p>
+                    {/* <p><strong>Date Of Activation:</strong> {user?.active?.activeDate ? new Date(user?.active?.activeDate).toLocaleString() : "N/A"} </p> */}
                     <p><strong>Joining Date:</strong> {new Date(user?.createdAt).toLocaleString()}</p>
                     {/* <p><strong>Level:</strong> Beginner</p> */}
                     <p><strong>Renewal Status:</strong> {user?.active?.isActive ? "Active" : "Inactive"}</p>

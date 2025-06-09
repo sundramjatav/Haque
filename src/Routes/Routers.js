@@ -16,14 +16,14 @@ export const Routers = {
     RAISE_TICKET_LIST: "/raise-ticket-list",
     TRADING_INCOME_HISTORY: "/trading-income-history",
     DIRECT_REFERRAL_INCOME: "/direct-referral-income-history",
-    GENERATION_INCOME: "/generation-income-history",
+    GENERATION_INCOME: "/daily-income-history",
     GLOBAL_INCOME_HISTORY: "/global-income-history",
     MATCHING_INCOME_HISTORY: "/matching-income-history",
     RANK_LEADER_BOARD: "/rank-leader-board",
     PROFILE: "/profile",
-    OUR_PLANS: "/our-plans",
+    OUR_PLANS: "/all-plan",
     DIRECT_REFERRALS: "/direct-referrals",
-    INVESTMENT_REPORTS: "/investment-reports",
+    INVESTMENT_REPORTS: "/purchase-plan-reports",
 
     /// ----------- Admin panel ------------- ////
     ADMIN_LOGIN: "/admin/login",

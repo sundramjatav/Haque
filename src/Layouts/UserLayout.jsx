@@ -14,7 +14,7 @@ import { FaMoneyBills, FaPlaneSlash } from 'react-icons/fa6';
 import { SiMoneygram } from 'react-icons/si';
 import { RiMoneyRupeeCircleLine } from 'react-icons/ri';
 import { GiTakeMyMoney } from 'react-icons/gi';
-import  { AuroraHero } from './AuroraHero';
+import { AuroraHero } from './AuroraHero';
 import Footer from '../Components/Footer';
 import { MainContent } from '../Content/MainContent';
 import { useDispatch, useSelector } from 'react-redux';
@@ -66,7 +66,7 @@ const UserLayout = () => {
           path: Routers.DIRECT_REFERRAL_INCOME,
         },
         {
-          title: 'Generation Income',
+          title: 'Daily Income',
           icon: <MdSupport />,
           path: Routers.GENERATION_INCOME,
         },
@@ -109,24 +109,25 @@ const UserLayout = () => {
     // },
     {
       title: 'Direct Referrals',
-      icon: <FaUserPlus />
-      ,
+      icon: <FaUserPlus />,
       path: Routers.DIRECT_REFERRALS,
-
-    },
-    {
-      title: 'Investment Reports',
-      icon: <TbReportSearch />
-      ,
-      path: Routers.INVESTMENT_REPORTS,
-
     },
 
     {
       title: 'Our Plans',
       icon: <BiMoneyWithdraw />,
-      path: Routers.OUR_PLANS,
-
+      children: [
+        {
+          title: 'All Plan',
+          icon: <BiMoneyWithdraw />,
+          path: Routers.OUR_PLANS,
+        },
+        {
+          title: 'Purchase Plan Reports',
+          icon: <TbReportSearch />,
+          path: Routers.INVESTMENT_REPORTS,
+        },
+      ]
     },
     {
       title: 'Help & Support',
@@ -149,10 +150,8 @@ const UserLayout = () => {
 
 
   const user = useSelector((state) => state.auth);
-  const name = user?.user?.username
+  const name = user?.user?.name
   const email = user?.user?.email
-
-
   const isActive = (path) => location.pathname === path;
 
 
@@ -295,8 +294,8 @@ const UserLayout = () => {
               <div className="">
                 <div className='flex items-center gap-2'>
                   <div className='flex flex-col items-end'>
-                    <p className="uppercase">{name}</p>
-                    <p className='uppercase text-sm text-text-color/80'>{email}</p>
+                    <p className="uppercase text-xs">{name}</p>
+                    <p className='text-text-color/80 text-xs'>{email}</p>
                   </div>
                   <div className='w-10 h-10 rounded-xl overflow-hidden bg-text-white/10 '>
                     <img className='w-full h-full object-top object-cover' src="https://img.icons8.com/3d-fluency/94/guest-male--v3.png" alt="" />

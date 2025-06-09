@@ -46,7 +46,7 @@ const Hero = () => {
                 <span className="mb-1.5 inline-block rounded-full bg-gray-600/50 px-3 py-1.5 text-sm">
                     Beta Now Live!
                 </span>
-                <GradientHeading className={'text-center'} text="Welcome to Yumeko Ai" />
+                <GradientHeading className={'text-center'} text="Welcome to Trade Mint Pro" />
                 <p className="my-6 max-w-xl text-center text-base leading-relaxed md:text-lg md:leading-relaxed">
                     Your trusted partner in crypto earning and investing. <br />
                     Unlock secure opportunities with staking, mining, and DeFi projects. <br />

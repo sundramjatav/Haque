@@ -8,26 +8,22 @@ const Footer = () => {
 
     return (
         <footer className="relative bg-bg-color/20 overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10">
-                {/* <div className="absolute top-0 left-0 w-32 h-32 sm:w-48 sm:h-48 lg:w-72 lg:h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div> */}
+            {/* <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 left-0 w-32 h-32 sm:w-48 sm:h-48 lg:w-72 lg:h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
                 <div className="absolute bottom-0 right-0 w-32 h-32 sm:w-48 sm:h-48 lg:w-72 lg:h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-            </div>
+            </div> */}
             
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-3 lg:px-4 py-4 sm:py-12 lg:py-16">
-                {/* Main Footer Content */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
                     
-                    {/* Brand Section */}
                     <div className="sm:col-span-2 lg:col-span-1 space-y-4 sm:space-y-6">
                         <div className="flex items-center space-x-3">
                             <div className="relative">
                                 <img 
                                     src={MainContent.AppLogo} 
-                                    alt="Yumeko AI Logo" 
+                                    alt="Trade Mind Pro Logo" 
                                     className='h-10 sm:h-12 md:h-16 lg:h-20 object-contain filter drop-shadow-lg' 
                                 />
-                                {/* <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg opacity-20 blur-md"></div> */}
                             </div>
                         </div>
                         <div className="space-y-3 sm:space-y-4">
@@ -156,7 +152,7 @@ const Footer = () => {
                 <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-700/50">
                     <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
                         <div className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
-                            © {new Date().getFullYear()} Yumeko AI. All rights reserved.
+                            © {new Date().getFullYear()} Trade Mind Pro. All rights reserved.
                         </div>
                         <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-xs sm:text-sm text-gray-400">
                             <div className="flex space-x-4 sm:space-x-6">

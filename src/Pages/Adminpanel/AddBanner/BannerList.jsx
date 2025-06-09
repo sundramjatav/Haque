@@ -33,7 +33,9 @@ const BannerList = () => {
     try {
       setLoading(true);
       const response = await getBannerList();
-      setBannerList(response?.data);
+      console.log(response);
+      
+      setBannerList(response?.banners);
     } catch (error) {
       console.error("Error fetching users:", error);
     } finally {
@@ -43,7 +45,7 @@ const BannerList = () => {
   const title = "All Banner List";
   const headers = [
     "S.No",
-    "ID",
+    "Banner ID",
     "Banner Image",
     "Banner Name",
     "Discription",
@@ -107,18 +109,18 @@ const BannerList = () => {
         headers={headers}
         data={Array.isArray(bannerList) ? bannerList : [bannerList]}
         searchKey={"Banner  Name or ID"}
-        searchKeys={["title", "id"]}
+        searchKeys={["title", "_id"]}
         renderRow={(item, index) => (
           <>
             <td className='border-r border-b border-text-white/40 p-2 md:p-3'>{index + 1}</td>
-            <td className='border-r border-b border-text-white/40 p-2 md:p-3'>{item?.id}</td>
+            <td className='border-r border-b border-text-white/40 p-2 md:p-3'>{item?._id}</td>
             <td className='border-r border-b border-text-white/40 p-2 md:p-3'>
               <img src={item?.file} className="w-auto h-10 border border-text-white/40 rounded-lg mx-auto" />
             </td>
             <td className='border-r border-b border-text-white/40 p-2 md:p-3'>{item?.title}</td>
             <td className='border-r border-b border-text-white/40 p-2 md:p-3'>{truncateWords(item?.description, 20)}</td>
             <td className='border-r border-b border-text-white/40 p-2 md:p-3'>{item?.type}</td>
-            <td className='border-r border-b border-text-white/40 p-2 md:p-3'>{item?.status ? 'Active' : 'Inactive'}</td>
+            <td className={`border-r border-b border-text-white/40 p-2 md:p-3 font-semibold ${!item?.status ? "text-red-500":"text-green-500" }`}>{item?.status ? 'Active' : 'Inactive'}</td>
             <td className='border-b border-text-white/40 p-2 md:p-3 '>
               <div className='flex items-center gap-2'>
                 <div onClick={() => handleView(item)} className='bg-[#ffffff13] backdrop-blur-md flex items-center justify-center text-bg-color cursor-pointer w-8 h-8 rounded-md border border-white/40'>
