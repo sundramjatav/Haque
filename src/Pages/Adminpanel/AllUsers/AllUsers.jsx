@@ -10,7 +10,7 @@ import { ImBlocked } from 'react-icons/im';
 
 const AllUsers = () => {
   const title = "All User List";
-  const headers = ["S.No", "Username", "Sponsor", "Wallet", "Join Date", "Status", "Action"];
+  const headers = ["S.No", "Username","Referral Link", "Sponsor", "Wallet", "Join Date", "Status", "Action"];
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -128,6 +128,11 @@ const AllUsers = () => {
             <td className='border-r border-b border-text-white/20 p-2 md:p-3'>
               <div className='flex items-center gap-2'>
                 <p>{item?.name}</p>
+              </div>
+            </td>
+            <td className='border-r border-b border-text-white/20 p-2 md:p-3'>
+              <div className='flex items-center gap-2'>
+                <p>{item?.referralLink}</p>
               </div>
             </td>
             <td className='border-r border-b border-text-white/20 p-2 md:p-3'>

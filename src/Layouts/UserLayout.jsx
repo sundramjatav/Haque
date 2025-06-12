@@ -184,7 +184,7 @@ const UserLayout = () => {
           <div className="px-4  overflow-y-auto scrollbar flex flex-col gap-4">
             <div className="w-full flex items-center gap-3 justify-between">
               <div>
-                <img src={MainContent.AppLogo} className='' alt="" />
+                <img src={MainContent.AppLogo} className='h-32' alt="" />
               </div>
               <button
                 onClick={toggleSidebar}

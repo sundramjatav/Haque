@@ -148,7 +148,7 @@ const AdminLayout = () => {
             <div className="w-full flex items-center justify-between">
               <div className='overflow-hidden'>
                 {/* <h1 className='text-2xl font-bold'>Dashboard</h1> */}
-                <img src={MainContent.AppLogo} className='rounded-lg' alt="" />
+                <img src={MainContent.AppLogo} className='rounded-lg h-32' alt="" />
               </div>
               <button
                 onClick={toggleSidebar}

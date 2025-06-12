@@ -1,14 +1,13 @@
 import axios from 'axios';
-import logo from '../assets/yumeko-logo-white.png'
+import logo from '../assets/Fundzy logo white-03.png'
 import logo1 from '../assets/yemeko-logo.jpg'
 import { store } from '../Redux/store';
 
 export const MainContent = {
-  AppName: "Trade Mint Pro",
+  AppName: "Fundzy",
   AppLogo: logo,
-  appFavicon: logo1,
+  appFavicon: logo,
 }
-
 export const backendConfig = {
   base: "http://192.168.1.15:5000/api",
   origin: "http://192.168.1.15:5000", 
