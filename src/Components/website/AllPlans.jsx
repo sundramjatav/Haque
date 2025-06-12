@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { HiCheck } from "react-icons/hi";
-import { getAllPlans } from "../../Api/user.api";
 import GradientHeading from "./GradientHeading";
+import { getAllPlans } from "../../Api/website.api";
 
 const AllPlans = () => {
     const [plans, setPlans] = useState([]);

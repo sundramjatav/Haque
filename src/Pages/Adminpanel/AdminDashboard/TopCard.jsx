@@ -15,34 +15,26 @@ const TopCard = () => {
     fetchTotalIncomeCountData();
   }, []);
 
-  const cardData = [
-    { title: 'All Users', value: `${Number(data?.users ?? 0)}`, img: 'https://img.icons8.com/3d-fluency/94/group--v2.png' },
-    { title: 'Active Users', value: ` ${Number(data?.userActive ?? 0)}`, img: 'https://img.icons8.com/3d-fluency/94/group.png' },
-    { title: 'Inactive Users', value: ` ${Number(data?.userInactive ?? 0)}`, img: 'https://img.icons8.com/3d-fluency/94/group--v4.png' },
-    { title: 'Today Income', value: `$ ${Number(data?.todayIncome ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-fluency/94/cash-in-hand.png' },
-    { title: 'Total Income', value: `$ ${Number(data?.totalIncome ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-fluency/94/stack-of-coins.png' },
-    { title: 'Today Referral Income', value: `$ ${Number(data?.todayReferral ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-plastilina/69/share--v1.png' },
-    { title: 'Total Referral Income', value: `$ ${Number(data?.totalReferral ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-plastilina/69/share--v1.png' },
-    { title: 'Today Withdraw', value: `$ ${Number(data?.todayWithdraw ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-fluency/94/atm.png' },
-    { title: 'Total Withdraw', value: `$ ${Number(data?.totalWithdraw ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-fluency/94/money-bag.png' },
-    { title: 'Today Level Income', value: `$ ${Number(data?.todayLevel ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-fluency/94/bar-chart.png' },
-    { title: 'Total Level Income', value: `$ ${Number(data?.totalLevel ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-fluency/94/bar-chart.png' },
-    { title: 'Today Matching Income', value: `$ ${Number(data?.todayMatching ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-fluency/94/handshake.png' },
-    { title: 'Total Matching Income', value: `$ ${Number(data?.totalMatching ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-fluency/94/handshake.png' },
-    { title: 'Today Global Achievers', value: `${Number(data?.todayGlobalAchiever ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-fluency/94/contract.png' },
-    { title: 'Total Global Achievers', value: `${Number(data?.totalGlobalAchiever ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-fluency/94/contract.png' },
-    { title: 'Today Transaction', value: `$ ${Number(data?.todayTransaction ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-fluency/94/transaction.png' },
-    { title: 'Total Transaction', value: `$ ${Number(data?.totalTransaction ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-fluency/94/transaction.png' },
-    { title: 'Today Trading', value: `$ ${Number(data?.todayTrading ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-fluency/94/candle-sticks.png' },
-    { title: 'Total Trading', value: `$ ${Number(data?.totalTrading ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-fluency/94/candle-sticks.png' },
-    { title: 'Today LiveTrading', value: `$ ${Number(data?.todayLiveTrading ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-fluency/94/radio-waves.png' },
-    { title: 'Total LiveTrading', value: `$ ${Number(data?.totalLiveTrading ?? 0).toFixed(2)}`, img: 'https://img.icons8.com/3d-fluency/94/radio-waves.png' },
-  ];
+ const cards = [
+   { title: 'Total Users', value: `${Number(data?.totalPartners ?? 0)}`, img: 'https://img.icons8.com/3d-fluency/94/conference-call.png' },
+   { title: 'Active Users', value: `${Number(data?.activeUsers ?? 0)}`, img: 'https://img.icons8.com/3d-fluency/94/ok.png' },
+   { title: 'Inactive Users', value: `${Number(data?.inactiveUsers ?? 0)}`, img: 'https://img.icons8.com/3d-fluency/94/group--v3.png' },
+   { title: 'Total Investment', value: `$ ${Number(data?.totalInvestment ?? 0).toFixed(3)}`, img: 'https://img.icons8.com/3d-fluency/94/investment.png' },
+   { title: 'Today Investment', value: `$ ${Number(data?.todayInvestment ?? 0).toFixed(3)}`, img: 'https://img.icons8.com/3d-fluency/94/money.png' },
+   { title: 'Total Trade Amount', value: `$ ${Number(data?.totalTradeAmount ?? 0).toFixed(3)}`, img: 'https://img.icons8.com/3d-fluency/94/combo-chart.png' },
+   { title: 'Today Trade Amount', value: `$ ${Number(data?.todayTradeAmount ?? 0).toFixed(3)}`, img: 'https://img.icons8.com/3d-fluency/94/increase.png' },
+   { title: 'Total Trade Profit', value: `$ ${Number(data?.totalTradeProfit ?? 0).toFixed(3)}`, img: 'https://img.icons8.com/3d-fluency/94/receive-cash.png' },
+   { title: 'Today Trade Profit', value: `$ ${Number(data?.todayTradeProfit ?? 0).toFixed(3)}`, img: 'https://img.icons8.com/3d-fluency/94/money.png' },
+   { title: 'Total Income', value: `$ ${Number(data?.totalIncome ?? 0).toFixed(3)}`, img: 'https://img.icons8.com/3d-fluency/94/sales-performance.png' },
+   { title: 'Today Income', value: `$ ${Number(data?.todayIncome ?? 0).toFixed(3)}`, img: 'https://img.icons8.com/3d-fluency/94/money-transfer.png' },
+   { title: 'Total Withdrawals', value: `$ ${Number(data?.totalWithdraw ?? 0).toFixed(3)}`, img: 'https://img.icons8.com/3d-fluency/94/money-bag.png' },
+   { title: 'Today Withdrawals', value: `$ ${Number(data?.todayWithdraw ?? 0).toFixed(3)}`, img: 'https://img.icons8.com/isometric/50/card-in-use.png' }
+ ];
 
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {cardData.map((card, idx) => (
+      {cards.map((card, idx) => (
         <div
           key={idx}
           className="bg-[#ffffff13] backdrop-blur-md rounded-xl p-4 flex justify-between items-center shadow-md"

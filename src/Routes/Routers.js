@@ -16,7 +16,8 @@ export const Routers = {
     RAISE_TICKET_LIST: "/raise-ticket-list",
     TRADING_INCOME_HISTORY: "/trading-income-history",
     DIRECT_REFERRAL_INCOME: "/direct-referral-income-history",
-    GENERATION_INCOME: "/daily-income-history",
+    GENERATION_INCOME: "/level-income-history",
+    DAILY_INCOME: "/daily-income-history",
     GLOBAL_INCOME_HISTORY: "/global-income-history",
     MATCHING_INCOME_HISTORY: "/matching-income-history",
     RANK_LEADER_BOARD: "/rank-leader-board",
@@ -24,7 +25,10 @@ export const Routers = {
     OUR_PLANS: "/all-plan",
     DIRECT_REFERRALS: "/direct-referrals",
     INVESTMENT_REPORTS: "/purchase-plan-reports",
-
+    AI_TRADE:"/ai-trade",
+    AI_TRADE_HISTORY:"/ai-trade-reports",
+    TEAM_PERFORMANCE:"/team-performance-history",
+    
     /// ----------- Admin panel ------------- ////
     ADMIN_LOGIN: "/admin/login",
     ADMIN_DASHBOARD: "/",
@@ -35,6 +39,7 @@ export const Routers = {
     WITHDRAWAL_HISTORY: "/withdrawal-history",
     RAISE_TICKET_LIST: "/raise-ticket-list",
     INVESTMENT_INCOME: "/investment-history",
+    DAILY_ROI_INCOME: "/daily-income-history",
     SELF_INCOME: "/level-income-history",
     MATCHING_INCOME: "/matching-income-history",
     TRADING_INCOME: "/trading-profit-history",
@@ -44,4 +49,7 @@ export const Routers = {
     ENQUIRY_HISTORY: "/enquiry-history",
     CLOUD_MINING_HISTORY: "/cloud-mining-history",
     LIVE_ACCOUNT_INVESTMENT : "/live-account-investment",
+    TEAM_PERFORMANCE_BONUS:"/team-performance-bouns",
+    AI_TRADE_REPORTS:"/ai-trade-history",
+    
 };

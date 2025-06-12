@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import TableComponent from '../../../Components/TableComponent';
 import Loader from '../../../Components/Loader';
-import { getLevelIncomeHistory } from '../../../Api/user.api';
+import { getDailyROIHistory, } from '../../../Api/user.api';
 import { GenerationStatus } from './GenerationStatus';
 import { useSelector } from 'react-redux';
 
-const GenerationIncome = () => {
+const DailyROIIncome = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
   const user = useSelector((state) => state.auth?.user);
@@ -14,9 +14,7 @@ const GenerationIncome = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await getLevelIncomeHistory();
-        console.log(response);
-        
+        const response = await getDailyROIHistory();
         if (response?.success) {
           setData(response);
         }
@@ -29,22 +27,21 @@ const GenerationIncome = () => {
     }
     fetchData();
   }, [])
-  const title = "Level Income";
+  const title = "Daily ROI Income";
   const headers = [
     "S.No",
-    "Level",
-    "Commission %",
     "Username",
+    "Plan Name",
     "Investment",
-    "Income from Level",
+    "Earning Percent %",
+    "Earning Amount",
     "Date",
-    // "Unlocked Status",
   ];
   const cardData = [
-    { title: 'Total Income', value: `$${data?.totalIncome?.toFixed(4) || "N/A"}`, img: 'https://img.icons8.com/3d-fluency/94/money-bag.png' },
-    { title: 'Today Income', value: `$${data?.todayTotal?.toFixed(4) || "N/A"}`, img: 'https://img.icons8.com/3d-fluency/94/approval.png' },
+    { title: 'Total Investment', value: `$${data?.totalInvestment?.toFixed(3) || "NA"}`, img: 'https://img.icons8.com/3d-fluency/94/money-bag.png' },
+    { title: 'Total Income', value: `$${data?.totalEarned?.toFixed(3) || "NA"}`, img: 'https://img.icons8.com/3d-fluency/94/approval.png' },
   ];
-  
+console.log(data);
 
   return (
     <>
@@ -67,31 +64,23 @@ const GenerationIncome = () => {
               </div>
             </div>
           ))}
-           <div
-             
-              className="bg-[#ffffff13] backdrop-blur-md rounded-xl p-4 flex justify-between items-center shadow-md"
-            >
-              <GenerationStatus partners={user?.activeUsers} inside={true} />
-            
-            </div>
         </div>
         <TableComponent
           title={title}
           headers={headers}
-          data={data?.history || []}
-          searchKeys={["id", "level"]}
-          searchKey={"User ID or Username"}
+          data={data?.data || []}
+          searchKeys={["userId.name"]}
+          searchKey={"User  Username"}
           renderRow={(item, index) => (
             <>
               <td className="border-r border-b border-text-white/40  p-2 text-center">{index + 1}</td>
-              <td className="border-r border-b border-text-white/40  p-2 text-center">{item?.level}</td>
-              <td className="border-r border-b border-text-white/40  p-2 text-center">{item?.percentage} %</td>
-              <td className="border-r border-b border-text-white/40  p-2 text-center">{item?.fromUser?.name}</td>
-              <td className="border-r border-b border-text-white/40  p-2 text-center">$ {item?.amount.toFixed(4)}</td>
-
-              <td className="border-b border-r border-text-white/40  p-2 text-center">$ {item?.income.toFixed(4)}</td>
+              {/* <td className="border-r border-b border-text-white/40  p-2 text-center">{item?._id}</td> */}
+              <td className="border-r border-b border-text-white/40  p-2 text-center">{item?.userId?.name}</td>
+              <td className="border-r border-b border-text-white/40  p-2 text-center capitalize">{item?.planId?.name}</td>
+              <td className="border-r border-b border-text-white/40  p-2 text-center">{item?.investmentAmount.toFixed(4)}</td>
+              <td className="border-r border-b border-text-white/40  p-2 text-center">{item?.roiPercent}</td>
+              <td className="border-b border-r border-text-white/40  p-2 text-center">{item?.earned.toFixed(4)}</td>
               <td className="border-b  border-text-white/40  p-2 text-center">{new Date(item?.date).toLocaleString()}</td>
-              {/* <td className=" border-b border-text-white/40  p-2 text-center">{item.isActive ? "Active" : "Inactive"}</td> */}
             </>
           )}
         />
@@ -105,4 +94,4 @@ const GenerationIncome = () => {
   )
 }
 
-export default GenerationIncome
+export default DailyROIIncome

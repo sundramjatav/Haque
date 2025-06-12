@@ -86,7 +86,7 @@ const InvestmentReports = () => {
             </td>
             <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">${item?.amount}</td>
             <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.plan}</td>
-            <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.isActive ? "Active":"InActive"}</td>
+            <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.isActive ? "Proccessing":"Completed"}</td>
             <td className="border-b border-text-white/40 p-2 md:p-3 text-center">
               {new Date(item?.startDate).toLocaleString()}
             </td>

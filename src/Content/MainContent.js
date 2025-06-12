@@ -10,8 +10,11 @@ export const MainContent = {
 }
 
 export const backendConfig = {
-  base: "http://192.168.1.55:5000/api",
-  origin: "http://192.168.1.55:5000", 
+  base: "http://192.168.1.15:5000/api",
+  origin: "http://192.168.1.15:5000", 
+
+  // base: "http://192.168.48.236:5000/api",
+  // origin: "http://192.168.48.236:5000", 
 
   // base: "https://yumeko.api.smartchainstudio.in/api",
   // origin: "https://yumeko.api.smartchainstudio.in/",

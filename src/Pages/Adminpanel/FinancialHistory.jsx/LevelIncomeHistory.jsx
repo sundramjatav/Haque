@@ -14,9 +14,8 @@ const LevelIncomeHistory = () => {
     "Income",
      "Level",
     "Percentage",
-    "Reward",
     "Date",
-    "Status"
+    // "Status"
   ];
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -24,7 +23,7 @@ const LevelIncomeHistory = () => {
     try {
       const response = await levelIncomeHistory();
       if (response.success) {
-        setData(response?.data?.history);
+        setData(response?.data);
       }
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -59,9 +58,9 @@ const LevelIncomeHistory = () => {
             <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">
               {item?.percentage !== null && item?.percentage !== undefined ? item.percentage : "N/A"}
             </td>
-            <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.reward || "N/A"}</td>
+            {/* <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.reward || "N/A"}</td> */}
             <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{new Date(item?.createdAt).toLocaleString()}</td>
-            <td className="border-b border-text-white/40 p-2 md:p-3 text-center">{item?.status}</td>
+            {/* <td className="border-b border-text-white/40 p-2 md:p-3 text-center">{item?.status}</td> */}
           </>
 
         )}

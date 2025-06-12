@@ -17,7 +17,6 @@ const AllUsers = () => {
   const fetchAllUserData = async () => {
     try {
       const response = await allUser();
-      console.log(response);
       if (response.success) {
         setData(response?.user || []);
       }
@@ -51,9 +50,9 @@ const AllUsers = () => {
           prevUsers.map(user =>
             user._id === id
               ? {
-                  ...user,
-                  isBanned: !user.isBanned,
-                }
+                ...user,
+                isBanned: !user.isBanned,
+              }
               : user
           )
         );
@@ -92,9 +91,9 @@ const AllUsers = () => {
           prevUsers.map(user =>
             user._id === id
               ? {
-                  ...user,
-                  isActive: !user.isActive,
-                }
+                ...user,
+                isActive: !user.isActive,
+              }
               : user
           )
         );
@@ -145,21 +144,23 @@ const AllUsers = () => {
             <td className={`border-r border-b border-text-white/20 p-2 md:p-3 font-bold ${item?.isActive ? 'text-green-500' : 'text-red-500'}`}>
               {item?.isActive ? 'Active' : 'Inactive'}
             </td>
-            <td className='border-b border-text-white/20 p-2 md:p-3 flex gap-2'>
-              <button
-                disabled={loading}
-                className={`p-1 rounded text-sm text-white ${item?.isActive ? 'bg-green-500' : 'bg-red-500'}`}
-                onClick={() => handleVerifyUser(item._id)}
-              >
-                {item?.isActive ? <FaCheck size={20} /> : <ImBlocked size={20} />}
-              </button>
-              <button
-                disabled={loading}
-                className={`p-1 rounded text-sm text-white ${item?.isBanned ? 'bg-red-500' : 'bg-green-500'}`}
-                onClick={() => handleBlockUser(item._id)}
-              >
-                {!item?.isBanned ? <TbLockCheck size={20} /> : <TbLockCancel size={20} />}
-              </button>
+            <td className='border-b border-text-white/20 p-2 md:p-3 '>
+              <div className='flex gap-2'>
+                <button
+                  disabled={loading}
+                  className={`p-1 rounded text-sm text-white ${item?.isActive ? 'bg-green-500' : 'bg-red-500'}`}
+                  onClick={() => handleVerifyUser(item._id)}
+                >
+                  {item?.isActive ? <FaCheck size={20} /> : <ImBlocked size={20} />}
+                </button>
+                <button
+                  disabled={loading}
+                  className={`p-1 rounded text-sm text-white ${item?.isBanned ? 'bg-red-500' : 'bg-green-500'}`}
+                  onClick={() => handleBlockUser(item._id)}
+                >
+                  {!item?.isBanned ? <TbLockCheck size={20} /> : <TbLockCancel size={20} />}
+                </button>
+              </div>
             </td>
           </>
         )}

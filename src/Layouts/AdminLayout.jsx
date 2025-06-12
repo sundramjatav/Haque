@@ -60,13 +60,14 @@ const AdminLayout = () => {
       title: 'Financial History',
       icon: <FaMoneyBills />,
       children: [
-        { title: 'Investment History', path: Routers.INVESTMENT_INCOME, icon: <GiTakeMyMoney /> },
-        { title: 'Level History', path: Routers.SELF_INCOME, icon: <RiMoneyRupeeCircleLine /> },
-        { title: 'Referral History', path: Routers.REFERRAL_INCOME, icon: <SiMoneygram /> },
-        { title: 'Matching History', path: Routers.MATCHING_INCOME, icon: <GrMoney /> },
-        { title: 'Trading Profit History', path: Routers.TRADING_INCOME, icon: <GiReceiveMoney /> },
-        { title: 'Global Archive History', path: Routers.GLOBAL_INCOME, icon: <SiWebmoney /> },
-        { title: 'Rank Reward History', path: Routers.RANK_INCOME, icon: <FaMoneyBillTrendUp /> },
+        { title: 'Daily ROI History', path: Routers.DAILY_ROI_INCOME, icon: <GiTakeMyMoney /> },
+        {
+          title: 'Team Performance Bouns',
+          icon: <MdSupport />,
+          path: Routers.TEAM_PERFORMANCE_BONUS,
+        },
+         { title: 'AI Trade History', path: Routers.AI_TRADE_REPORTS, icon: <GiTakeMyMoney /> },
+         { title: 'Level Income History', path: Routers.SELF_INCOME, icon: <GiTakeMyMoney /> }
       ]
     },
     {
@@ -74,11 +75,11 @@ const AdminLayout = () => {
       icon: <HiMiniWallet />,
       path: Routers.WITHDRAWAL_HISTORY,
     },
-    {
-      title: 'Live Account Investment',
-      icon: <SiKdenlive />,
-      path: Routers.LIVE_ACCOUNT_INVESTMENT,
-    },
+    // {
+    //   title: 'Live Account Investment',
+    //   icon: <SiKdenlive />,
+    //   path: Routers.LIVE_ACCOUNT_INVESTMENT,
+    // },
     {
       title: 'Raise Ticket History',
       icon: <MdSupport />,
@@ -96,7 +97,10 @@ const AdminLayout = () => {
     setOpenAccordion(null);
   }, [location.pathname]);
 
-  const isActive = (path) => location.pathname === path;
+ const isActive = (path) => {
+  return location.pathname === path || location.pathname.startsWith(path + '/');
+};
+
 
   const navigateToHomePage = () => {
     navigate(Routers.ADMIN_LOGIN);
@@ -118,7 +122,7 @@ const AdminLayout = () => {
         navigateToHomePage();
         Swal.fire({
           icon: "success",
-           text: 'Logout successful!',
+          text: 'Logout successful!',
           timer: 3000,
           toast: true,
           position: 'top-end',
@@ -130,7 +134,6 @@ const AdminLayout = () => {
   };
 
   const user = useSelector((state) => state.auth);
-  console.log(user);
   const name = user?.user?.name
   const email = user?.user?.email
 

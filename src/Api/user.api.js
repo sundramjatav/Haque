@@ -54,7 +54,7 @@ export async function checkWithdrawEligibility(payload) {
 
 export async function withdrawalHistory() {
   try {
-    const response = await Axios.get(`${userApi}/get-withdrawal-history`);
+    const response = await Axios.get(`${userApi}/get-withdraw-history`);
     return response?.data;
   } catch (error) {
     return error?.response.data;
@@ -94,7 +94,7 @@ export async function fetchTopUpList() {
 
 export async function setWithdrawalTransaction(payload) {
   try {
-    const response = await Axios.post(`${userApi}/tx/request-withdrawal`, payload);
+    const response = await Axios.post(`${userApi}/withdraw-income`, payload);
     return response?.data;
   } catch (error) {
     throw error?.response?.data || error;
@@ -145,7 +145,7 @@ export async function buyPlan(payload) {
 
 export async function getDashboardDetail() {
   try {
-    const response = await Axios.get(`${userApi}/get-user-incomes`);
+    const response = await Axios.get(`${userApi}/dashboard`);
     return response?.data;
   } catch (error) {
     return error?.response?.data;
@@ -161,9 +161,6 @@ export async function getTradingProfitHistory() {
   }
 }
 
-
-
-
 export async function getDailyROIHistory() {
   try {
     const response = await Axios.get(`${userApi}/daily-roi-history`);
@@ -172,6 +169,16 @@ export async function getDailyROIHistory() {
     return error?.response?.data;
   }
 }
+
+export async function getTeamPerformanceBouns() {
+  try {
+    const response = await Axios.get(`${userApi}/team-performance-bouns`);
+    return response?.data;
+  } catch (error) {
+    return error?.response?.data;
+  }
+}
+
 export async function getGlobalAchieverHistory() {
   try {
     const response = await Axios.get(`${userApi}/get-global-achiever-leaderboard`);
@@ -213,22 +220,7 @@ export async function getDirectUsers() {
     return error?.response?.data;
   }
 }
-// export async function getRankRewardHistory() {
-//   try {
-//     const response = await Axios.get(`${userApi}/get-rankreward-history`);
-//     return response?.data;
-//   } catch (error) {
-//     return error?.response.data;
-//   }
-// }
-// export async function getGlobalAchieverLeaderboard() {
-//   try {
-//     const response = await Axios.get(`${userApi}/get-global-achiever-leaderboard`);
-//     return response?.data;
-//   } catch (error) {
-//     return error?.response.data;
-//   }
-// }
+
 
 
 export async function getPackages() {
@@ -240,18 +232,37 @@ export async function getPackages() {
   }
 }
 
-export async function getAllPlans() {
+export async function aiTrader() {
   try {
-    const response = await Axios.get(`${userApi}/package/get-all-packages`);
+    const response = await Axios.post(`${userApi}/ai-trade`);
+    return response?.data;
+  } catch (error) {
+    return error?.response.data;
+  }
+}
+
+export async function aiTraderCollectAmount() {
+  try {
+    const response = await Axios.post(`${userApi}/ai-trade/claim`);
+    return response?.data;
+  } catch (error) {
+    return error?.response.data;
+  }
+}
+
+export async function getAiTradeReports() {
+  try {
+    const response = await Axios.get(`${userApi}/ai-trade-history`);
     return response?.data;
   } catch (error) {
     return error?.response?.data;
   }
 }
 
-export async function supportAPI(payload) {
+
+export async function getLevelIncomeHistory() {
   try {
-    const response = await Axios.post(`${userApi}/enquiry/ticket-raise`, payload);
+    const response = await Axios.get(`${userApi}/get-levelincome-history`);
     return response?.data;
   } catch (error) {
     return error?.response?.data;

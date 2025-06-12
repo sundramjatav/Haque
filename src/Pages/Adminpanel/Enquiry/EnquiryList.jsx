@@ -34,12 +34,12 @@ const EnquiryList = () => {
                 title={title}
                 headers={headers}
                 data={data}
-                searchKeys={["id", "name"]}
+                searchKeys={["TxId", "name"]}
                 searchKey={"Enquiry ID or Username"}
                 renderRow={(item, index) => (
                     <>
                         <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{index + 1}</td>
-                        <td className='border-r border-b border-text-white/40 p-2 md:p-3'>{item?.id}</td>
+                        <td className='border-r border-b border-text-white/40 p-2 md:p-3'>{item?.TxId}</td>
                         <td className='border-r border-b border-text-white/40 p-2 md:p-3'>{item?.name}</td>
                         <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.email}</td>
                         <td className="border-r border-b border-text-white/40 p-2 md:p-3 text-center">{item?.phone}</td>

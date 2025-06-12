@@ -130,7 +130,7 @@ export async function referralHistory() {
 
 export async function totalIncomeCount() {
   try {
-    const response = await Axios.get(`${adminApi}/get-income-summary`,
+    const response = await Axios.get(`${adminApi}/dashboard`,
     );
     return response?.data;
   } catch (error) {
@@ -244,4 +244,40 @@ export async function liveTradeProfit(id,payload) {
     } catch (error) {
         return error?.response?.data
     }
+}
+
+export async function getDailyROIHistory() {
+  try {
+    const response = await Axios.get(`${adminApi}/all-daily-roi-history`);
+    return response?.data;
+  } catch (error) {
+    return error?.response?.data;
+  }
+}
+
+export async function updateRequestStatus(payload) {
+  try {
+    const response = await Axios.put(`${adminApi}/approve-withdraw`,payload);
+    return response?.data;
+  } catch (error) {
+    return error?.response?.data;
+  }
+}
+
+export async function getTeamPerformanceBouns() {
+  try {
+    const response = await Axios.get(`${adminApi}/team-performance-bouns`);
+    return response?.data;
+  } catch (error) {
+    return error?.response?.data;
+  }
+}
+
+export async function getAiTradeReports() {
+  try {
+    const response = await Axios.get(`${adminApi}/ai-trade-history`);
+    return response?.data;
+  } catch (error) {
+    return error?.response?.data;
+  }
 }

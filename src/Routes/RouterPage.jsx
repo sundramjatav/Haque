@@ -46,6 +46,13 @@ import EditBanner from '../Pages/Adminpanel/AddBanner/EditBanner';
 import PublicRoute from '../utils/PublicRoute';
 import EnquiryList from '../Pages/Adminpanel/Enquiry/EnquiryList';
 import LiveAccountInvestment from '../Pages/Adminpanel/LiveAccountInvestment/LiveAccountInvestment';
+import DailyROIIncome from '../Pages/Userpanel/IncomeDetails/DailyROIIncome';
+import DailyROIIncome1 from '../Pages/Adminpanel/FinancialHistory.jsx/DailyROIIncome';
+import AiTrade from '../Pages/Userpanel/AI_Trade/AiTrade';
+import AiTradeReports from '../Pages/Userpanel/AI_Trade/AiTradeReports';
+import TeamPerformanceBouns from '../Pages/Userpanel/IncomeDetails/TeamPerformanceBouns';
+import TeamPerformanceBounsAdmin from '../Pages/Adminpanel/FinancialHistory.jsx/TeamPerformanceBouns';
+import AiTradeReportsAdmin from '../Pages/Adminpanel/FinancialHistory.jsx/AiTradeReports';
 
 const RouterPages = () => {
   const dispatch = useDispatch()
@@ -92,6 +99,7 @@ const RouterPages = () => {
           <Route path={`${Routers.UPDATE_BANNER}/:id`} element={<EditBanner />} />
           <Route path={Routers.WITHDRAWAL_HISTORY} element={<WithdrawalHistory1 />} />
           <Route path={Routers.RAISE_TICKET_LIST} element={<RaiseTicketList1 />} />
+          <Route path={Routers.DAILY_ROI_INCOME} element={<DailyROIIncome1 />} />
           <Route path={Routers.INVESTMENT_INCOME} element={<InvestmentHistory />} />
           <Route path={Routers.MATCHING_INCOME} element={<MatchingIncomeHistory />} />
           <Route path={Routers.TRADING_INCOME} element={<TradingIncomeHistory />} />
@@ -101,6 +109,8 @@ const RouterPages = () => {
           <Route path={Routers.REFERRAL_INCOME} element={<ReferralHistory />} />
           <Route path={Routers.ENQUIRY_HISTORY} element={<EnquiryList />} />
           <Route path={Routers.LIVE_ACCOUNT_INVESTMENT} element={<LiveAccountInvestment />} />
+          <Route path={Routers.TEAM_PERFORMANCE_BONUS} element={<TeamPerformanceBounsAdmin />} />
+          <Route path={Routers.AI_TRADE_REPORTS} element={<AiTradeReportsAdmin />} />
         </Route>
       )}
       {token && role === 'USER' && (
@@ -112,17 +122,20 @@ const RouterPages = () => {
           <Route path={Routers.ADD_TOPUP} element={<AddTopup />} />
           <Route path={Routers.TOPUP_HISTORY} element={<TopupHistory />} />
           <Route path={Routers.RAISE_TICKET} element={<AddRaise />} />
-
+          <Route path={Routers.AI_TRADE} element={<AiTrade />} />
+          <Route path={Routers.AI_TRADE_HISTORY} element={<AiTradeReports />} />
           <Route path={Routers.RANK_LEADER_BOARD} element={<RankLeaderBoard />} />
           <Route path={Routers.PROFILE} element={<Profile />} />
           <Route path={Routers.OUR_PLANS} element={<OurPlans />} />
           <Route path={Routers.DIRECT_REFERRAL_INCOME} element={<DirectReferralIncome />} />
           <Route path={Routers.GENERATION_INCOME} element={<GenerationIncome />} />
+          <Route path={Routers.DAILY_INCOME} element={<DailyROIIncome />} />
           <Route path={Routers.GLOBAL_INCOME_HISTORY} element={<GlobalAchieversBonus />} />
           <Route path={Routers.MATCHING_INCOME_HISTORY} element={<MatchingIncome />} />
           <Route path={Routers.TRADING_INCOME_HISTORY} element={<TradingProfitIncome />} />
           <Route path={Routers.INVESTMENT_REPORTS} element={<InvestmentReports />} />
           <Route path={Routers.DIRECT_REFERRALS} element={<DirectReferral />} />
+          <Route path={Routers.TEAM_PERFORMANCE} element={<TeamPerformanceBouns />} />
         </Route>
       )}
       <Route path="/" element={<Home />} />

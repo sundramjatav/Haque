@@ -1,29 +1,21 @@
-import { Axios } from "../constants/mainContent";
+import { Axios } from "../Content/MainContent";
 
-export async function appointmentBooking(payload) {
+const landingApi = "/landing";
+
+export async function supportAPI(payload) {
   try {
-    const response = await Axios.post(`/enquiry/create`, payload);
+    const response = await Axios.post(`${landingApi}/enquiry`, payload);
     return response?.data;
   } catch (error) {
-    console.error("Appointment Booking error:", error);
-    throw error?.response?.data || error;
+    return error?.response?.data;
   }
 }
-export async function getAppointment() {
+
+export async function getAllPlans() {
   try {
-    const response = await Axios.get(`/enquiry/get-all-reports`);
+    const response = await Axios.get(`${landingApi}/package/get-all-packages`);
     return response?.data;
   } catch (error) {
-    console.error("Appointment Booking error:", error);
-    throw error?.response?.data || error;
+    return error?.response?.data;
   }
 }
-// export async function deleteAppointment() {
-//   try {
-//     const response = await Axios.delete(`/enquiry/create`);
-//     return response?.data;
-//   } catch (error) {
-//     console.error("Appointment Booking error:", error);
-//     throw error?.response?.data || error;
-//   }
-// }

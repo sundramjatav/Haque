@@ -24,7 +24,6 @@ import { persistor } from '../Redux/store';
 import { IoMdAdd } from "react-icons/io";
 import { BiMoneyWithdraw } from "react-icons/bi";
 import { CiBank } from 'react-icons/ci';
-import { FcIdea } from 'react-icons/fc';
 import { TbReportSearch } from 'react-icons/tb';
 
 
@@ -55,31 +54,38 @@ const UserLayout = () => {
         { title: 'Rank & Leaderboard', path: Routers.RANK_LEADER_BOARD, icon: <RiMoneyRupeeCircleLine /> },
       ]
     },
+     {
+      title: 'Direct Referrals',
+      icon: <FaUserPlus />,
+      path: Routers.DIRECT_REFERRALS,
+    },
     {
       title: 'Income Details',
       icon: <CiBank />,
       children: [
-        { title: 'Trading Profit Income', path: Routers.TRADING_INCOME_HISTORY, icon: <MdSupport /> },
         {
-          title: 'Direct Referral Income',
-          icon: <MdSupport />,
-          path: Routers.DIRECT_REFERRAL_INCOME,
-        },
-        {
-          title: 'Daily Income',
+          title: 'Level Income',
           icon: <MdSupport />,
           path: Routers.GENERATION_INCOME,
         },
         {
-          title: 'Matching Bonus Income',
+          title: 'Daily Income',
           icon: <MdSupport />,
-          path: Routers.MATCHING_INCOME_HISTORY,
+          path: Routers.DAILY_INCOME,
         },
         {
-          title: 'Global Achievers Bonus',
+          title: 'Team Performance Bouns',
           icon: <MdSupport />,
-          path: Routers.GLOBAL_INCOME_HISTORY,
+          path: Routers.TEAM_PERFORMANCE,
         },
+      ]
+    },
+    {
+      title: 'AI Trade Bot',
+      icon: <FaMoneyBills />,
+      children: [
+        { title: 'AI Trade', path: Routers.AI_TRADE, icon: <GiTakeMyMoney /> },
+        { title: 'AI Trade History', path: Routers.AI_TRADE_HISTORY, icon: <GiTakeMyMoney /> }
       ]
     },
     {
@@ -95,24 +101,6 @@ const UserLayout = () => {
         },
       ]
     },
-    // {
-    //   title: 'Topup',
-    //   icon: <CiBank />,
-    //   children: [
-    //     { title: 'Add Topup', path: Routers.ADD_TOPUP, icon: <IoMdAdd /> },
-    //     {
-    //       title: 'Topup History',
-    //       icon: <BiMoneyWithdraw />,
-    //       path: Routers.TOPUP_HISTORY,
-    //     },
-    //   ]
-    // },
-    {
-      title: 'Direct Referrals',
-      icon: <FaUserPlus />,
-      path: Routers.DIRECT_REFERRALS,
-    },
-
     {
       title: 'Our Plans',
       icon: <BiMoneyWithdraw />,

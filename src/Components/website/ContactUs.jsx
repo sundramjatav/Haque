@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaTimes } from "react-icons/fa";
+import { supportAPI } from '../../Api/website.api';
+import Swal from 'sweetalert2';
 
 const ContactUs = () => {
   const [loading, setLoading] = useState(false);
@@ -10,16 +12,6 @@ const ContactUs = () => {
     message: ''
   });
 
-  const supportAPI = async (data) => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    return { success: true, message: "Thank you for contacting us! We'll get back to you soon." };
-  };
-
-  const Swal = {
-    fire: ({ icon, text }) => {
-      alert(`${icon.toUpperCase()}: ${text}`);
-    }
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,9 +34,24 @@ const ContactUs = () => {
     try {
       const response = await supportAPI(formData);
       if (response?.success) {
-        Swal.fire({ icon: "success", text: response?.message });
+        Swal.fire({
+          icon: "success",
+          text: response?.message,
+          timer: 3000,
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timerProgressBar: true,
+        });
       } else {
-        Swal.fire({ icon: "error", text: response?.message || "Please try again" });
+        Swal.fire({
+          icon: "error", text: response?.message || "Please try again",
+          timer: 3000,
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timerProgressBar: true,
+        });
       }
     } catch (error) {
       Swal.fire({ icon: "error", text: "Something went wrong. Please try again." });
@@ -198,6 +205,14 @@ const ContactUs = () => {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <button
+                type="button"
+                onClick={handleCancel}
+                className="flex-1 flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-red-500 to-pink-500 text-white font-semibold rounded-xl hover:from-red-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105"
+              >
+                <FaTimes />
+                Cancel
+              </button>
+              <button
                 type="submit"
                 disabled={loading}
                 className="flex-1 flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 disabled:opacity-70"
@@ -213,15 +228,6 @@ const ContactUs = () => {
                     Submit
                   </>
                 )}
-              </button>
-
-              <button
-                type="button"
-                onClick={handleCancel}
-                className="flex-1 flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-red-500 to-pink-500 text-white font-semibold rounded-xl hover:from-red-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105"
-              >
-                <FaTimes />
-                Cancel
               </button>
             </div>
           </form>

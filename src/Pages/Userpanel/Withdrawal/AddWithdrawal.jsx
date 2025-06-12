@@ -13,6 +13,7 @@ import { setWithdrawalTransaction } from '../../../Api/user.api';
 
 const AddWithdrawal = () => {
   const user = useSelector((state) => state.auth?.user);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [amount, setAmount] = useState(0);
@@ -24,7 +25,7 @@ const AddWithdrawal = () => {
 
 
   const handleWithdrawPopup = async () => {
-    if (amount < 10) {
+    if (amount > 10) {
       Swal.fire({
         icon: "error",
         text: "Minimum withdrawal $10 .",
@@ -32,7 +33,7 @@ const AddWithdrawal = () => {
         position: 'top-end',
         showConfirmButton: false,
         timer: 3000,
-                  timerProgressBar: true
+        timerProgressBar: true
 
       });
     } else {
@@ -46,6 +47,7 @@ const AddWithdrawal = () => {
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
+            timerProgressBar: true,
             timer: 3000,
           })
           setAmount(0);
@@ -56,8 +58,8 @@ const AddWithdrawal = () => {
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-                      timerProgressBar: true
-
+            timerProgressBar: true,
+            timer: 3000,
           })
         }
       } catch (error) {
@@ -67,7 +69,8 @@ const AddWithdrawal = () => {
           toast: true,
           position: 'top-end',
           showConfirmButton: false,
-          timerProgressBar: true
+          timerProgressBar: true,
+          timer: 3000,
         })
       } finally {
         setLoading(false);
@@ -104,7 +107,7 @@ const AddWithdrawal = () => {
 
         <section className="relative ">
           <div className="w-full bg-[#ffffff13] backdrop-blur-md shadow-md rounded-xl p-4 flex flex-col gap-5">
-            <h1 className='text-2xl font-semibold'>Main Wallet: $ {user?.incomeDetails?.income?.currentIncome?.toFixed(2) || "0"}</h1>
+            <h1 className='text-2xl font-semibold'>Main Wallet: $ {user?.account?.totalIncome?.toFixed(3) || "0"}</h1>
             <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
               {fields.map(renderField)}
             </div>
