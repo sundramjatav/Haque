@@ -36,38 +36,40 @@ const AboutMe = ({ user }) => {
 
     return (
         <div className="flex flex-col lg:flex-row gap-4  rounded-lg text-white">
-            <div className="flex-1 bg-[#ffffff13] backdrop-blur-md  p-6 rounded-xl shadow-lg">
-                <div className="flex items-center justify-between w-full">
-                    <h2 className="text-xl font-semibold mb-4">About Me</h2>   <GenerationStatus partners={user?.activeUsers} />
+            <div className='flex-1 box-border-color p-1 rounded-xl'>
+                <div className="background p-6 rounded-xl shadow-lg">
+                    <div className="flex items-center justify-between w-full">
+                        <h2 className="text-xl font-semibold mb-4">About Me</h2>   <GenerationStatus partners={user?.activeUsers} />
 
-                </div>
-                <div className="space-y-2 text-sm">
-                    <p><strong>User Id :</strong> {user?._id}</p>
-                    <p><strong>Sponsor Name :</strong> {user?.sponsor?.name ? user?.sponsor?.name : "N/A"}</p>
-                    <p><strong>Wallet Address :</strong> {user?.walletAddress}</p>
-                    {/* <p><strong>Date Of Activation:</strong> {user?.active?.activeDate ? new Date(user?.active?.activeDate).toLocaleString() : "N/A"} </p> */}
-                    <p><strong>Joining Date:</strong> {new Date(user?.createdAt).toLocaleString()}</p>
-                    {/* <p><strong>Level:</strong> Beginner</p> */}
-                    <p><strong>Renewal Status:</strong> {user?.active?.isActive ? "Active" : "Inactive"}</p>
-                </div>
+                    </div>
+                    <div className="space-y-2 text-sm">
+                        <p><strong>User Id :</strong> {user?._id}</p>
+                        <p><strong>Sponsor Name :</strong> {user?.sponsor?.name ? user?.sponsor?.name : "N/A"}</p>
+                        <p><strong>Wallet Address :</strong> {user?.walletAddress}</p>
+                        {/* <p><strong>Date Of Activation:</strong> {user?.active?.activeDate ? new Date(user?.active?.activeDate).toLocaleString() : "N/A"} </p> */}
+                        <p><strong>Joining Date:</strong> {new Date(user?.createdAt).toLocaleString()}</p>
+                        {/* <p><strong>Level:</strong> Beginner</p> */}
+                        <p><strong>Renewal Status:</strong> {user?.active?.isActive ? "Active" : "Inactive"}</p>
+                    </div>
 
-                <div className="mt-6">
-                    <h3 className="font-semibold mb-2">Your Refer Code</h3>
-                    <div className="flex items-center text-sm bg-text-white/10 rounded-lg p-2">
-                        <input
-                            type="text"
-                            readOnly
-                            className="bg-transparent text-white w-full outline-none"
-                            value={referCode}
-                        />
-                        <button onClick={handleCopy} className="copybtn bg-bg-color/80 hover:bg-bg-color p-1 rounded">
-                            📋
-                        </button>
+                    <div className="mt-6">
+                        <h3 className="font-semibold mb-2">Your Refer Code</h3>
+                        <div className="flex items-center text-sm bg-text-white/10 rounded-lg p-2">
+                            <input
+                                type="text"
+                                readOnly
+                                className="bg-transparent text-white w-full outline-none"
+                                value={referCode}
+                            />
+                            <button onClick={handleCopy} className="copybtn bg-bg-color/80 hover:bg-bg-color p-1 rounded">
+                                📋
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div className="w-full lg:w-[300px] bg-[#ffffff13] backdrop-blur-md  p-4 rounded-xl shadow-lg">
+              <div className='box-border-color p-1 rounded-xl'>
+            <div className="w-full lg:w-[300px] background p-4 rounded-xl shadow-lg">
                 <h2 className="text-xl font-semibold mb-4">Notice & Updates</h2>
                 <div className="relative h-64 overflow-hidden">
                     <div className="animate-scroll-up flex flex-col gap-4 text-sm">
@@ -78,7 +80,7 @@ const AboutMe = ({ user }) => {
                         ))}
                     </div>
                 </div>
-            </div>
+            </div></div>
         </div>
     );
 };

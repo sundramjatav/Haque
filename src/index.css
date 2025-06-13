@@ -122,3 +122,19 @@
     font-size: 3.75rem;
   }
 }
+
+
+.background {
+  background: linear-gradient(270deg, #000909 6.06%, #000908 55.87%, #0c4132 99.95%);
+}
+.btn-gradient{
+  background: linear-gradient(278deg, #008b5a 1.97%, #01ebe0 98.03%);
+}
+
+.box-border-color{
+  background : linear-gradient(to top, #031817, #1b4a4c, #87b2b3, #e6e6e6);
+}
+
+.sidebar_background{
+  background: linear-gradient(270deg, #001111 6.06%, #011f1b 55.87%,  #0c4132 99.95%);
+}

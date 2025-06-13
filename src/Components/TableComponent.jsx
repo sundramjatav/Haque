@@ -30,7 +30,8 @@ const TableComponent = ({ title, headers, data, renderRow, searchKeys = [], sear
 
     return (
         <div>
-            <div className='space-y-4 bg-[#ffffff13] backdrop-blur-md p-4 rounded-xl overflow-hidden'>
+              <div className='box-border-color p-1 rounded-xl'>
+            <div className='space-y-4 background p-4 rounded-xl overflow-hidden'>
                 <div className='flex flex-col md:flex-row justify-between gap-4'>
                     <div className='flex items-center gap-3 '>
                         <BackButton />
@@ -72,7 +73,7 @@ const TableComponent = ({ title, headers, data, renderRow, searchKeys = [], sear
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div></div>
             <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={setCurrentPage} />
         </div>
     );

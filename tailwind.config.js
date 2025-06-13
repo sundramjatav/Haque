@@ -13,7 +13,9 @@ export default {
         "text-white": "#FFF",
         "text-black": "#000",
         "dark_green": "#4FE117",
-        "gray": "#FFFFFF80"
+        "gray": "#FFFFFF80",
+        "sidebar_bg":"#000000f2",
+        "border":"#14c9c0",
       },
       keyframes: {
         'up-down': {

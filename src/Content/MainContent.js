@@ -9,14 +9,14 @@ export const MainContent = {
   appFavicon: logo,
 }
 export const backendConfig = {
-  base: "http://192.168.1.15:5000/api",
-  origin: "http://192.168.1.15:5000", 
+  // base: "http://192.168.1.15:5000/api",
+  // origin: "http://192.168.1.15:5000", 
 
   // base: "http://192.168.48.236:5000/api",
   // origin: "http://192.168.48.236:5000", 
 
-  // base: "https://yumeko.api.smartchainstudio.in/api",
-  // origin: "https://yumeko.api.smartchainstudio.in/",
+  base: "https://fundgy.api.smartchainstudio.in/api",
+  origin: "https://fundgy.api.smartchainstudio.in/",
 };
 
 export const Axios = axios.create({

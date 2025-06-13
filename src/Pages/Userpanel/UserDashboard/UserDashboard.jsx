@@ -24,7 +24,7 @@ const UserDashboard = () => {
    }, []);
    {console.log(data)}
   return (
-    <div className='flex flex-col gap-5'>
+    <div className='flex flex-col gap-5 '>
       <TopSection data={data} user={user}/>
       <AboutMe user={user}/>
       <Referrals/>

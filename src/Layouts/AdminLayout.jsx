@@ -140,10 +140,10 @@ const AdminLayout = () => {
   return (
     <div>
       <div className='absolute top-0 left-0 w-full h-screen -z-10 '>
-        <AuroraHero />
+        {/* <AuroraHero /> */}
       </div>
-      <div className="flex justify-end gap-2 md:p-1 w-full bg-bg-color1/10 h-screen relative z-50 text-text-white" >
-        <div className={`absolute md:relative w-[250px] py-2 z-50 h-full bg-[#ffffff13] backdrop-blur-md md:rounded-xl flex duration-300 flex-col ${!isSidebarOpen ? "md:left-0 -left-full" : "md:-left-full left-0"}`}>
+      <div className="flex justify-end gap-2 w-full background h-screen relative z-50 text-text-white" >
+        <div className={`absolute md:relative w-[250px] py-2 z-50 h-full sidebar_background border-r-2 border-border  backdrop-blur-md flex duration-300 flex-col ${!isSidebarOpen ? "md:left-0 -left-full" : "md:-left-full left-0"}`}>
           <div className="px-4  overflow-y-auto scrollbar flex flex-col gap-4">
             <div className="w-full flex items-center justify-between">
               <div className='overflow-hidden'>
@@ -190,7 +190,7 @@ const AdminLayout = () => {
                                 to={child.path}
                                 className={`flex items-center gap-2 p-2 rounded-xl text-sm transition-colors duration-200 
                         ${isActive(child.path)
-                                    ? 'bg-[#ffffff13] backdrop-blur-md font-semibold'
+                                    ? 'btn-gradient backdrop-blur-md font-semibold'
                                     : ''}`}
                               >
                                 {child.icon}
@@ -204,7 +204,7 @@ const AdminLayout = () => {
                       <Link
                         to={item.path}
                         className={`flex items-center gap-3 p-2 rounded-xl  transition-colors duration-200 
-                ${isActive(item.path) ? 'font-semibold bg-[#ffffff13] backdrop-blur-md' : ''}`}
+                ${isActive(item.path) ? 'font-semibold  btn-gradient backdrop-blur-md' : ''}`}
                       >
                         {item.icon}
                         {item.title}
@@ -216,7 +216,7 @@ const AdminLayout = () => {
             </div>
             <div>
               <div>
-                <button onClick={handleLogout} className='px-4 bg-red-500  w-full py-2 flex items-center gap-4  rounded'>
+                <button onClick={handleLogout} className='px-4 text-[#FF0000] w-full py-2 flex items-center gap-4  rounded'>
                   <LuLogOut />  Logout
                 </button>
               </div>
@@ -225,7 +225,7 @@ const AdminLayout = () => {
         </div>
         <div className={`flex flex-col w-full h-full duration-200 ${isSidebarOpen ? "w-full" : "md:w-[calc(100%-250px)]"} flex-shrink-0`}>
           <main className="overflow-y-auto  flex flex-col md:gap-2 gap-1">
-            <header className="flex items-center p-2 md:rounded-xl bg-[#ffffff13] backdrop-blur-md text-white justify-between">
+            <header className="flex items-center p-2 md:rounded-xl  text-white justify-between">
               <div className="flex items-center gap-2 md:gap-4">
                 <button
                   onClick={toggleSidebar}
